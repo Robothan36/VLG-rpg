@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://bc8msvoxt3yto"]
+
+[ext_resource type="Script" uid="uid://bwea8hts1ojj3" path="res://code/items_scripts and ressources/item_data.gd" id="1_jhy8r"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_tunso"]
+size = Vector2(2, 2)
+
+[resource]
+script = ExtResource("1_jhy8r")
+id = "1"
+name = "dextro Energy"
+description = "Will give you 1 Stamina"
+icon = SubResource("PlaceholderTexture2D_tunso")
+function = "dextro_energy"
+metadata/_custom_type_script = "uid://bwea8hts1ojj3"

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://c3gnvw4qxebbf"]
+
+[ext_resource type="Script" uid="uid://bwea8hts1ojj3" path="res://code/items_scripts and ressources/item_data.gd" id="1_fspr0"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_fspr0"]
+size = Vector2(2, 2)
+
+[resource]
+script = ExtResource("1_fspr0")
+id = "2"
+name = "Space Kecks"
+description = "will give you 2 health"
+icon = SubResource("PlaceholderTexture2D_fspr0")
+function = "space_kecks"
+metadata/_custom_type_script = "uid://bwea8hts1ojj3"

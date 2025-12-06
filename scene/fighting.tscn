@@ -1,0 +1,110 @@
+[gd_scene load_steps=4 format=3 uid="uid://78mqed0x2a3q"]
+
+[ext_resource type="Script" uid="uid://ctxch1gcviwep" path="res://code/game_scripts/fighting.gd" id="1_ordpl"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_scybi"]
+size = Vector2(80, 40)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ordpl"]
+size = Vector2(80, 40)
+
+[node name="fighting" type="Node"]
+script = ExtResource("1_ordpl")
+
+[node name="visuals" type="Node2D" parent="."]
+
+[node name="player" type="Sprite2D" parent="visuals"]
+position = Vector2(65, 56)
+texture = SubResource("PlaceholderTexture2D_scybi")
+
+[node name="enemy" type="Sprite2D" parent="visuals"]
+position = Vector2(249, 37)
+texture = SubResource("PlaceholderTexture2D_ordpl")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -59.0
+offset_top = -77.0
+offset_right = 59.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="stats" type="MarginContainer" parent="Control/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/HBoxContainer/stats"]
+layout_mode = 2
+
+[node name="health" type="Label" parent="Control/HBoxContainer/stats/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "health"
+
+[node name="stamina" type="Label" parent="Control/HBoxContainer/stats/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "stamina"
+
+[node name="xp" type="Label" parent="Control/HBoxContainer/stats/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "XP"
+
+[node name="menu" type="MarginContainer" parent="Control/HBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/HBoxContainer/menu"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/HBoxContainer/menu/HBoxContainer"]
+layout_mode = 2
+
+[node name="abilities" type="Button" parent="Control/HBoxContainer/menu/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "abilities"
+
+[node name="basic attack" type="Button" parent="Control/HBoxContainer/menu/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "basic attack"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Control/HBoxContainer/menu/HBoxContainer"]
+layout_mode = 2
+
+[node name="items" type="Button" parent="Control/HBoxContainer/menu/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "items"
+
+[node name="run" type="Button" parent="Control/HBoxContainer/menu/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "run"
+
+[node name="items_menu" type="MarginContainer" parent="Control/HBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="item_v_container" type="VBoxContainer" parent="Control/HBoxContainer/items_menu"]
+layout_mode = 2
+
+[connection signal="pressed" from="Control/HBoxContainer/menu/HBoxContainer/VBoxContainer2/items" to="." method="_on_items_pressed"]

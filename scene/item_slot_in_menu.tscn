@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://svu7syhycrmy"]
+
+[ext_resource type="Script" uid="uid://vhao3m6rel4g" path="res://code/game_scripts/item_slot_in_menu.gd" id="1_fvu02"]
+
+[node name="item_slot_in_menu" type="Button"]
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("1_fvu02")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

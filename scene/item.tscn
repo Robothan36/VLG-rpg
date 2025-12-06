@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://bug14mc6ienlr"]
+
+[ext_resource type="Resource" uid="uid://lrn8tk6pn6n" path="res://code/items_scripts and ressources/ressource/monster_white.tres" id="1_4w2rt"]
+
+[sub_resource type="GDScript" id="GDScript_akoh1"]
+script/source = "extends Node2D
+
+
+@export var item_data: ItemData
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	print(self.name, \" is here\")
+	$Sprite2D.texture = item_data.icon
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.name == \"player\":
+		print(item_data.name, \" has been collected\")
+		Global.inventory.append(item_data)
+		self.queue_free()
+"
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_4w2rt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_akoh1"]
+size = Vector2(8, 6)
+
+[node name="item" type="Node2D"]
+script = SubResource("GDScript_akoh1")
+item_data = ExtResource("1_4w2rt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1.4210855e-14, 1.4210855e-14)
+scale = Vector2(7.5, 5.5)
+texture = SubResource("PlaceholderTexture2D_4w2rt")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_akoh1")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
