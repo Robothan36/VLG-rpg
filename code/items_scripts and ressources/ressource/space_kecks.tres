@@ -1,15 +1,17 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://c3gnvw4qxebbf"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://c3gnvw4qxebbf"]
 
+[ext_resource type="Texture2D" uid="uid://dxqbits2gye7k" path="res://assests/item_sprite_sheet.png" id="1_e1lx7"]
 [ext_resource type="Script" uid="uid://bwea8hts1ojj3" path="res://code/items_scripts and ressources/item_data.gd" id="1_fspr0"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_fspr0"]
-size = Vector2(2, 2)
+[sub_resource type="AtlasTexture" id="AtlasTexture_eaaht"]
+atlas = ExtResource("1_e1lx7")
+region = Rect2(16, 0, 16, 16)
 
 [resource]
 script = ExtResource("1_fspr0")
 id = "2"
 name = "Space Kecks"
 description = "will give you 2 health"
-icon = SubResource("PlaceholderTexture2D_fspr0")
+icon = SubResource("AtlasTexture_eaaht")
 function = "space_kecks"
 metadata/_custom_type_script = "uid://bwea8hts1ojj3"

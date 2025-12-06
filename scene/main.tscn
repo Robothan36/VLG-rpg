@@ -44,7 +44,7 @@ position = Vector2(48, -484)
 item_data = ExtResource("7_p1hux")
 
 [node name="item7" parent="item_container" instance=ExtResource("5_0ha60")]
-position = Vector2(-23, -495)
+position = Vector2(143, -345)
 item_data = ExtResource("8_of57s")
 
 [node name="item8" parent="item_container" instance=ExtResource("5_0ha60")]
@@ -52,6 +52,7 @@ position = Vector2(-13, -521)
 
 [node name="item3" parent="item_container" instance=ExtResource("5_0ha60")]
 position = Vector2(-15, -458)
+item_data = ExtResource("8_of57s")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
