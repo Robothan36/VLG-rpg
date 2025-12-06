@@ -46,10 +46,6 @@ func _on_items_pressed() -> void:
 		# retrieves every item from the global array inventory and instances an button-scene with its name
 		# button press is connected to item_used() 
 	
-	
-	
-
-
 func item_used(name,function):
 	
 	

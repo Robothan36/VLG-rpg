@@ -17,4 +17,4 @@ shape = SubResource("RectangleShape2D_vufel")
 texture = SubResource("PlaceholderTexture2D_h08p8")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-target_position = Vector2(0, 100)
+target_position = Vector2(0, 135)

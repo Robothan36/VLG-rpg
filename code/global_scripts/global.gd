@@ -22,6 +22,6 @@ func reset_game():
 
 	
 # reset_game is beeing called to resest every global variable
-# reest_game() has to contain every global variable which is supposed to be  reseted
+# reset_game() has to contain every global variable which is supposed to be  reseted
 	
 	
