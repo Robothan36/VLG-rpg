@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="player_attack" load_steps=2 format=3 uid="uid://c0o0cykfuslw"]
+
+[ext_resource type="Script" uid="uid://cab8fdvdr747d" path="res://code/player_attack_resource/player_attack_data.gd" id="1_tl8ln"]
+
+[resource]
+script = ExtResource("1_tl8ln")
+name_of_attack = "PQ Formel"
+damage = 10
+stamina_cost = 3
+metadata/_custom_type_script = "uid://cab8fdvdr747d"

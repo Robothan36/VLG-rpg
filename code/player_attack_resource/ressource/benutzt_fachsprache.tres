@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="playerAttackData" load_steps=2 format=3 uid="uid://um2kila10jf0"]
+
+[ext_resource type="Script" uid="uid://cab8fdvdr747d" path="res://code/player_attack_resource/player_attack_data.gd" id="1_dbxnm"]
+
+[resource]
+script = ExtResource("1_dbxnm")
+related_subject = 4
+name_of_attack = "Fachsprache"
+damage = 5
+stamina_cost = 2
+metadata/_custom_type_script = "uid://cab8fdvdr747d"

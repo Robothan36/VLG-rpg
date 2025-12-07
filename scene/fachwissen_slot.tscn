@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://0syvtdea8w3m"]
+
+[ext_resource type="Script" uid="uid://diyen0pt7hjfr" path="res://code/game_scripts/fachwissen_slot.gd" id="1_3usqm"]
+
+[node name="fachwissen_slot" type="HBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_3usqm")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+
+[node name="description" type="Label" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+
+[node name="cost" type="Label" parent="."]
+layout_mode = 2
+
+[node name="fachwissen_slot" type="Control" parent="."]
+layout_mode = 2
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

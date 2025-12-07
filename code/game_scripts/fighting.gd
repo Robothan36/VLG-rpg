@@ -13,15 +13,19 @@ extends Node
 
 #menu
 @onready var menu: MarginContainer = $Control/HBoxContainer/menu
-@onready var abilities: Button = $Control/HBoxContainer/menu/HBoxContainer/VBoxContainer/abilities
 @onready var basic_attack: Button = $"Control/HBoxContainer/menu/HBoxContainer/VBoxContainer/basic attack"
 @onready var items: Button = $Control/HBoxContainer/menu/HBoxContainer/VBoxContainer2/items
 @onready var run: Button = $Control/HBoxContainer/menu/HBoxContainer/VBoxContainer2/run
+@onready var abilities: Button = $Control/HBoxContainer/menu/HBoxContainer/VBoxContainer/abilities
 
 
 #items
 @onready var items_menu: MarginContainer = $Control/HBoxContainer/items_menu
 @onready var item_v_container: VBoxContainer = $Control/HBoxContainer/items_menu/VBoxContainer/ScrollContainer/item_v_container
+
+#attacks
+@onready var fachwissen_menu: MarginContainer = $Control/HBoxContainer/Fachwissen_menu
+@onready var attack_container: VBoxContainer = $Control/HBoxContainer/Fachwissen_menu/VBoxContainer/ScrollContainer/attack_container
 
 
 var enemy_ressource
@@ -29,6 +33,7 @@ var enemy_ressource
 func _ready() -> void:
 	
 	items_menu.visible = false
+	fachwissen_menu.visible = false
 	
 	if Global.enemy_ressource_paket:
 		
@@ -79,6 +84,7 @@ func item_used(name_item,function,item_res):
 		print("the method: ", function, " was not found in global_items_func")
 		
 	Global.inventory.erase(item_res)
+	enemy_turn()
 	
 func _on_run_pressed() -> void:
 	get_tree().change_scene_to_file("res://scene/main.tscn")
@@ -102,3 +108,36 @@ func _on_back_item_menu_pressed() -> void:
 	
 	items_menu.visible = false
 	menu.visible = true
+
+
+func _on_abilities_pressed() -> void:
+	menu.visible = false
+	fachwissen_menu.visible = true
+	
+	for i in Global.attack_equip:
+		var instance = preload("res://scene/fachwissen_slot.tscn")
+		var slot = instance.instantiate()
+		
+		slot.attack_name = i.name_of_attack
+		slot.stamina_cost= i.stamina_cost
+		slot.damage = i.damage
+		slot.heal = i.self_heal
+		
+		slot.connect("attack_used",Callable(self,"player_attack"))
+		
+		attack_container.add_child(slot)
+		
+
+
+func _on_back_attack_menu_pressed() -> void:
+	for child in attack_container.get_children():
+		child.queue_free()
+	
+	fachwissen_menu.visible = false
+	menu.visible = true
+
+
+func player_attack(damage,heal):
+	Global.health += heal
+	enemy_ressource.health -= damage
+	enemy_turn()

@@ -1,6 +1,6 @@
 extends Node
 
-
+var attack_equip : Array
 var health : float
 var max_health : float
 var xp : float
@@ -18,6 +18,15 @@ func _ready() -> void:
 
 
 func reset_game():
+	
+	var attack_1 = load("res://code/player_attack_resource/ressource/benutzt_fachsprache.tres")
+	var attack_2 = load("res://code/player_attack_resource/ressource/pq_formel.tres")
+	attack_equip.append(attack_1)
+	attack_equip.append(attack_2)
+	print(attack_equip," are the equipted attacks")
+	# nur vorübergehend zum testen
+	
+	
 	allgemeinwissen = 1
 	health = 5
 	max_health = 10.0
