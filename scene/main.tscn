@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cj7hij4fw8wgc"]
+[gd_scene load_steps=10 format=3 uid="uid://cj7hij4fw8wgc"]
 
 [ext_resource type="Script" uid="uid://buh5acrwwrqe3" path="res://code/game_scripts/main.gd" id="1_4j5ol"]
 [ext_resource type="PackedScene" uid="uid://cklkj35cb7lrk" path="res://scene/player.tscn" id="1_wp4xf"]
@@ -6,6 +6,7 @@
 [ext_resource type="TileSet" uid="uid://dqqm0qtkv7uxs" path="res://other/sprite_sheet.tres" id="3_0ha60"]
 [ext_resource type="PackedScene" uid="uid://c44riupt3vxmv" path="res://scene/enemy.tscn" id="4_brvut"]
 [ext_resource type="PackedScene" uid="uid://bug14mc6ienlr" path="res://scene/item.tscn" id="5_0ha60"]
+[ext_resource type="Resource" uid="uid://bijoxagl2l8hp" path="res://code/enemy ressources and sripts/enemy_ressources/math_teacher.tres" id="6_b5f6u"]
 [ext_resource type="Resource" uid="uid://bc8msvoxt3yto" path="res://code/items_scripts and ressources/ressource/dextro_energy.tres" id="7_p1hux"]
 [ext_resource type="Resource" uid="uid://c3gnvw4qxebbf" path="res://code/items_scripts and ressources/ressource/space_kecks.tres" id="8_of57s"]
 
@@ -27,6 +28,7 @@ layer_0/tile_data = PackedInt32Array(917501, 65536, 0, 983037, 65536, 0, 1048573
 [node name="enemy" parent="." instance=ExtResource("4_brvut")]
 position = Vector2(58.000004, -243)
 rotation = -3.153384
+enemyData = ExtResource("6_b5f6u")
 
 [node name="item_container" type="Node2D" parent="."]
 position = Vector2(55, 158)

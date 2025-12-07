@@ -1,9 +1,14 @@
 extends Node
 
+#enemy stats
+@onready var enemy_health_label: Label = $visuals/enemy/enemy_health_label
+
 #stats
 @onready var health: Label = $Control/HBoxContainer/stats/VBoxContainer/health
 @onready var stamina: Label = $Control/HBoxContainer/stats/VBoxContainer/stamina
 @onready var xp: Label = $Control/HBoxContainer/stats/VBoxContainer/xp
+
+
 
 
 #menu
@@ -16,16 +21,29 @@ extends Node
 
 #items
 @onready var items_menu: MarginContainer = $Control/HBoxContainer/items_menu
-@onready var item_v_container: VBoxContainer = $Control/HBoxContainer/items_menu/item_v_container
+@onready var item_v_container: VBoxContainer = $Control/HBoxContainer/items_menu/VBoxContainer/ScrollContainer/item_v_container
 
 
+var enemy_ressource
+
+func _ready() -> void:
+	
+	items_menu.visible = false
+	
+	if Global.enemy_ressource_paket:
+		
+		enemy_ressource = Global.enemy_ressource_paket.duplicate()
+	else: 
+		enemy_ressource = load("res://code/enemy ressources and sripts/enemy_ressources/math_teacher.tres")
 
 func _process(delta: float) -> void:
 	health.text = "Health: " + str(Global.health) + "/" + str(Global.max_health)
 	stamina.text = "Stamina: " + str(Global.stamina) + "/" + str(Global.max_stamina)
 	xp.text = "XP : " + str(Global.xp) 
 	
-	# the player stats are updated every frame
+	enemy_health_label.text = "Health: " + str(enemy_ressource.health)
+	
+	# the player and enemy stats are updated every frame
 	# -> not needed, more efficent would be an update afer every action but it is easier this way
 	
 func _on_items_pressed() -> void:
@@ -39,6 +57,7 @@ func _on_items_pressed() -> void:
 		slot.connect("item_was_used",Callable(self,"item_used"))
 		
 		slot.item_name = i.name
+		slot.item_var = i
 			
 		slot.item_function = i.function
 		item_v_container.add_child(slot)
@@ -46,7 +65,7 @@ func _on_items_pressed() -> void:
 		# retrieves every item from the global array inventory and instances an button-scene with its name
 		# button press is connected to item_used() 
 	
-func item_used(name,function):
+func item_used(name_item,function,item_res):
 	
 	
 	if GlobalItemsFunc.has_method(function):
@@ -58,5 +77,28 @@ func item_used(name,function):
 		
 	else: 
 		print("the method: ", function, " was not found in global_items_func")
+		
+	Global.inventory.erase(item_res)
 	
+func _on_run_pressed() -> void:
+	get_tree().change_scene_to_file("res://scene/main.tscn")
+
+
+func _on_basic_attack_pressed() -> void:
+	enemy_ressource.health -= Global.allgemeinwissen
+	enemy_turn()
+
 	
+func enemy_turn():
+	
+	var instance = preload("res://scene/attack.tscn")
+	var attack_scene = instance.instantiate()
+	attack_scene.subject = enemy_ressource.subject
+	add_child(attack_scene)
+
+func _on_back_item_menu_pressed() -> void:
+	for child in item_v_container.get_children():
+		child.queue_free()
+	
+	items_menu.visible = false
+	menu.visible = true

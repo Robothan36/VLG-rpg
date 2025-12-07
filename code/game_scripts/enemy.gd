@@ -1,6 +1,9 @@
 extends CharacterBody2D
 class_name enemy
 
+@export var enemyData: enemy_data
+
+
 @onready var ray_cast_2d: RayCast2D = $RayCast2D
 var detected_player = false
 var speed = 0.5
@@ -21,7 +24,11 @@ func _physics_process(delta: float) -> void:
 			velocity = Vector2.ZERO
 			
 			# now the enemy has collided with the player and the fight has to start
+			
+			Global.enemy_ressource_paket = enemyData
+			
 			get_tree().change_scene_to_file("res://scene/fighting.tscn")
+			
 			
 			
 			self.queue_free()

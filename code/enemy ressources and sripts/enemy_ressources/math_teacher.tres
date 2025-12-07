@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="enemy_data" load_steps=2 format=3 uid="uid://bijoxagl2l8hp"]
+
+[ext_resource type="Script" uid="uid://cpfdbc74b5c3n" path="res://code/enemy ressources and sripts/enemy_data_.gd" id="1_c1vmo"]
+
+[resource]
+script = ExtResource("1_c1vmo")
+id = "0"
+name = "Math teacher"
+description = "ein energetischer Matherlehrer"
+health = 100
+strenght = 20
+metadata/_custom_type_script = "uid://cpfdbc74b5c3n"

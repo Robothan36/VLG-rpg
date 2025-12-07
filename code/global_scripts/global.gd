@@ -8,11 +8,17 @@ var inventory : Array
 var stamina : int
 var max_stamina: int
 
+var allgemeinwissen : float
+
+var enemy_ressource_paket : Resource
+
+
 func _ready() -> void:
 	reset_game()
 
 
 func reset_game():
+	allgemeinwissen = 1
 	health = 5
 	max_health = 10.0
 	xp = 0
