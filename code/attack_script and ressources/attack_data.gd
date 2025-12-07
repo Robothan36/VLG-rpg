@@ -13,6 +13,6 @@ interdisziplinär
 
 @export var name_of_attack : String
 @export var damage : int
-
+@export var prop : int
 @export var self_heal := 0
 @export var causes_status_effect := false
