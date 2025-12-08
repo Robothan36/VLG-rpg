@@ -30,6 +30,11 @@ position = Vector2(58.000004, -243)
 rotation = -3.153384
 enemyData = ExtResource("6_b5f6u")
 
+[node name="enemy2" parent="." instance=ExtResource("4_brvut")]
+position = Vector2(102, -299)
+rotation = -3.153384
+enemyData = ExtResource("6_b5f6u")
+
 [node name="item_container" type="Node2D" parent="."]
 position = Vector2(55, 158)
 

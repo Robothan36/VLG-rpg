@@ -35,7 +35,7 @@ func _ready() -> void:
 		
 		# über jedes Element im Ordner iterieren und alle ressources
 		# mit selebn Fach in dic attack pool hinzufügen
-		print("attack pool is: ", attack_pool)
+	#	print("attack pool is: ", attack_pool)
 				
 	
 		var attack = chose_random_attack_with_prop()

@@ -14,6 +14,7 @@ interdisziplinär
 @export var name_of_attack : String
 @export var damage : int
 
+@export var id : int
 @export var stamina_cost : int
 
 @export var self_heal := 0

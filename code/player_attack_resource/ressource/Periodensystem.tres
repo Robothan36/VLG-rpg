@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="player_attack" load_steps=2 format=3 uid="uid://dn064pnsrbjqe"]
+[gd_resource type="Resource" script_class="playerAttackData" load_steps=2 format=3 uid="uid://dn064pnsrbjqe"]
 
 [ext_resource type="Script" uid="uid://cab8fdvdr747d" path="res://code/player_attack_resource/player_attack_data.gd" id="1_uhtgo"]
 
@@ -6,5 +6,6 @@
 script = ExtResource("1_uhtgo")
 name_of_attack = "Periodenystem"
 damage = 2
+id = 1
 stamina_cost = 1
 metadata/_custom_type_script = "uid://cab8fdvdr747d"

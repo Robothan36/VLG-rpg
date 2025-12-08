@@ -53,10 +53,11 @@ func _process(delta: float) -> void:
 	
 	if Global.health <= 0:
 		print("player lost")
+		Global.reset_game()
 		get_tree().change_scene_to_file("res://scene/main.tscn")
 	if enemy_ressource.health <= 0:
 		print("enemy lost")
-	#	end_fight()
+		end_fight()
 			
 func _on_items_pressed() -> void:
 	menu.visible = false
@@ -145,7 +146,9 @@ func _on_back_attack_menu_pressed() -> void:
 
 func player_attack(damage,heal):
 	Global.health += heal
+	
 	enemy_ressource.health -= damage
+	
 	enemy_turn()
 	
 func end_fight():
