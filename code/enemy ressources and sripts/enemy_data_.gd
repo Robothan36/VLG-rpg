@@ -4,7 +4,7 @@ class_name enemy_data
 enum subject_pool{
 Naturwissenschaft, 
 Sprache,
-Geselschaftswissenschaft,
+Geselswchaftswissenschaft,
 Kunst,
 interdisziplinär
  }

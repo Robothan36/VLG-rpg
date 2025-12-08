@@ -8,6 +8,8 @@ class_name enemy
 var detected_player = false
 var speed = 0.5
 
+
+
 func _physics_process(delta: float) -> void:
 	if ray_cast_2d.get_collider() and detected_player == false:
 		var col = ray_cast_2d.get_collider()
@@ -28,10 +30,14 @@ func _physics_process(delta: float) -> void:
 			Global.enemy_ressource_paket = enemyData
 			
 			Global.save_game()
+			
+			Global.defeated_enemy_array.append(self.name)
+			
 			get_tree().change_scene_to_file("res://scene/fighting.tscn")
 			
 			
 			
-			self.queue_free()
+			
+			#self.queue_free()
 			
 		#pass

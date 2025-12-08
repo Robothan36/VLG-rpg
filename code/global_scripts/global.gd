@@ -2,8 +2,8 @@ extends Node
 
 var save_path = "user://savestate.save"
 var attack_equip : Array
-var health : float
-var max_health : float
+var health : int
+var max_health : int
 var xp : float
 var inventory : Array
 var stamina : int
@@ -15,6 +15,8 @@ var enemy_ressource_paket : Resource
 
 var player_position = Vector2(70,-340)
 
+var defeated_enemy_array = []
+
 func _ready() -> void:
 	reset_game()
 	#load_game()
@@ -22,6 +24,7 @@ func _ready() -> void:
 
 func reset_game():
 	
+	defeated_enemy_array = []
 	player_position = Vector2(70,-340)
 	
 	var attack_1 = load("res://code/player_attack_resource/ressource/benutzt_fachsprache.tres")
@@ -88,7 +91,7 @@ func load_game():
 		
 		
 func save_res(array):
-	
+	print(array, " this array was commited")
 	var saved_array = []
 	
 	for i in array:
@@ -99,7 +102,8 @@ func save_res(array):
 	
 		
 func load_res(encoded_array,path):
-	
+	print("loading process started")
+	print("the encoded array recieved was: ", encoded_array)
 	var decoded_array = []
 	for i in encoded_array:
 		var dir := DirAccess.open(path)
@@ -116,14 +120,14 @@ func load_res(encoded_array,path):
 					var full_path = path + file_name 
 					var res = load(full_path)
 				
-					
+					print(i,res.id)
 					if res.id == i:
 						decoded_array.append(res)
 					
 					file_name = dir.get_next()
 					
 		dir.list_dir_end()
-		
-		return decoded_array
+	print("the dencoded array recieved was: ", decoded_array)
+	return decoded_array
 	
 	
