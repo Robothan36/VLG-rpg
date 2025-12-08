@@ -51,6 +51,13 @@ func _process(delta: float) -> void:
 	# the player and enemy stats are updated every frame
 	# -> not needed, more efficent would be an update afer every action but it is easier this way
 	
+	if Global.health <= 0:
+		print("player lost")
+		get_tree().change_scene_to_file("res://scene/main.tscn")
+	if enemy_ressource.health <= 0:
+		print("enemy lost")
+	#	end_fight()
+			
 func _on_items_pressed() -> void:
 	menu.visible = false
 	items_menu.visible = true
@@ -87,8 +94,7 @@ func item_used(name_item,function,item_res):
 	enemy_turn()
 	
 func _on_run_pressed() -> void:
-	get_tree().change_scene_to_file("res://scene/main.tscn")
-
+	end_fight()
 
 func _on_basic_attack_pressed() -> void:
 	enemy_ressource.health -= Global.allgemeinwissen
@@ -141,3 +147,7 @@ func player_attack(damage,heal):
 	Global.health += heal
 	enemy_ressource.health -= damage
 	enemy_turn()
+	
+func end_fight():
+	Global.load_game()
+	get_tree().change_scene_to_file("res://scene/main.tscn")

@@ -44,7 +44,8 @@ func _ready() -> void:
 		
 
 func use_attack(attack):
-	Global.health -= attack.damage
+	var incoming_damage = attack.damage * get_parent().enemy_ressource.strenght
+	Global.health -= incoming_damage
 	get_parent().enemy_ressource.health += attack.self_heal
 	
 	# Hier wird die Attack ausgeführt
@@ -53,7 +54,7 @@ func use_attack(attack):
 func chose_random_attack_with_prop():
 	var sum = 0
 	for i in attack_pool:
-		print(i.name_of_attack, " - ", i.prop)
+		#print(i.name_of_attack, " - ", i.prop)
 		sum += i.prop
 		
 	#es wird die summe der ganzen Wahrscheinlichkeiten gebildet

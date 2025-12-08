@@ -27,6 +27,7 @@ func _physics_process(delta: float) -> void:
 			
 			Global.enemy_ressource_paket = enemyData
 			
+			Global.save_game()
 			get_tree().change_scene_to_file("res://scene/fighting.tscn")
 			
 			
@@ -34,5 +35,3 @@ func _physics_process(delta: float) -> void:
 			self.queue_free()
 			
 		#pass
-
-	

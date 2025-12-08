@@ -21,7 +21,7 @@ enum difficulties {
 @export var texture: Texture2D
 @export var subject: subject_pool
 @export var health: int
-@export var strenght : int
+@export var strenght : float
 @export var function: String
  
 # template for item ressource

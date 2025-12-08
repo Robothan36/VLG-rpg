@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_eutnm")
 name_of_attack = "berechne pi"
-damage = 2
+damage = 10
 prop = 2
 self_heal = 10
 metadata/_custom_type_script = "uid://bujlrqrhe6kf"

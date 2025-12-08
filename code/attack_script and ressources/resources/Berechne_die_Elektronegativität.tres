@@ -5,6 +5,6 @@
 [resource]
 script = ExtResource("1_ckb6h")
 name_of_attack = "Berechne die Elektronegativität"
-damage = 1
+damage = 4
 prop = 4
 metadata/_custom_type_script = "uid://bujlrqrhe6kf"

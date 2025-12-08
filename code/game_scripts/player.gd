@@ -23,3 +23,4 @@ func _input(event: InputEvent) -> void:
 		
 func _physics_process(delta: float) -> void:
 	move_and_slide()
+	Global.player_position = self.position
