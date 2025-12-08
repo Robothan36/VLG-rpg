@@ -1,0 +1,126 @@
+[gd_scene load_steps=2 format=3 uid="uid://dymrti2vjpuu1"]
+
+[ext_resource type="Script" uid="uid://c6xttv1mopnf1" path="res://code/game_scripts/menu.gd" id="1_e5g8k"]
+
+[node name="menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_e5g8k")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.5
+offset_top = -56.5
+offset_right = 58.5
+offset_bottom = 56.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="menu" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/menu"]
+layout_mode = 2
+text = "Menu"
+horizontal_alignment = 1
+
+[node name="items" type="Button" parent="MarginContainer/menu"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Items"
+
+[node name="speichern" type="Button" parent="MarginContainer/menu"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Speichern"
+
+[node name="laden" type="Button" parent="MarginContainer/menu"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Laden"
+
+[node name="fähigkeiten" type="Button" parent="MarginContainer/menu"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Fähigkeiten"
+
+[node name="zurück" type="Button" parent="MarginContainer/menu"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Zurück"
+
+[node name="items_menu" type="MarginContainer" parent="MarginContainer"]
+visible = false
+custom_minimum_size = Vector2(150, 120)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/items_menu"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/items_menu/VBoxContainer"]
+layout_mode = 2
+text = "Item - Menu"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/items_menu/VBoxContainer"]
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 2
+
+[node name="item_v_container" type="VBoxContainer" parent="MarginContainer/items_menu/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+
+[node name="back_item_menu" type="Button" parent="MarginContainer/items_menu/VBoxContainer"]
+layout_mode = 2
+text = "Back"
+
+[node name="fähigkeiten_menu" type="MarginContainer" parent="MarginContainer"]
+visible = false
+custom_minimum_size = Vector2(150, 120)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/fähigkeiten_menu"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/fähigkeiten_menu/VBoxContainer"]
+z_index = 10
+layout_mode = 2
+text = "Item - Menu"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/fähigkeiten_menu/VBoxContainer"]
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 2
+
+[node name="fähigkeiten_v_container" type="VBoxContainer" parent="MarginContainer/fähigkeiten_menu/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+
+[node name="back_fähigkeiten_menu" type="Button" parent="MarginContainer/fähigkeiten_menu/VBoxContainer"]
+layout_mode = 2
+text = "Back"
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer"]
+z_index = -1
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.5529412, 0.25882354, 0.019607844, 0.52156866)
+
+[connection signal="pressed" from="MarginContainer/menu/items" to="." method="_on_items_pressed"]
+[connection signal="pressed" from="MarginContainer/menu/speichern" to="." method="_on_speichern_pressed"]
+[connection signal="pressed" from="MarginContainer/menu/laden" to="." method="_on_laden_pressed"]
+[connection signal="pressed" from="MarginContainer/menu/fähigkeiten" to="." method="_on_fähigkeiten_pressed"]
+[connection signal="pressed" from="MarginContainer/menu/zurück" to="." method="_on_zurück_pressed"]
+[connection signal="pressed" from="MarginContainer/items_menu/VBoxContainer/back_item_menu" to="." method="_on_back_item_menu_pressed"]
+[connection signal="pressed" from="MarginContainer/fähigkeiten_menu/VBoxContainer/back_fähigkeiten_menu" to="." method="_on_back_fähigkeiten_menu_pressed"]

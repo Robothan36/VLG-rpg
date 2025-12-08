@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bug14mc6ienlr" path="res://scene/item.tscn" id="5_0ha60"]
 [ext_resource type="Resource" uid="uid://bijoxagl2l8hp" path="res://code/enemy ressources and sripts/enemy_ressources/math_teacher.tres" id="6_b5f6u"]
 [ext_resource type="Resource" uid="uid://bc8msvoxt3yto" path="res://code/items_scripts and ressources/ressource/dextro_energy.tres" id="7_p1hux"]
-[ext_resource type="Resource" uid="uid://c3gnvw4qxebbf" path="res://code/items_scripts and ressources/ressource/space_kecks.tres" id="8_of57s"]
+[ext_resource type="Resource" uid="uid://lrn8tk6pn6n" path="res://code/items_scripts and ressources/ressource/monster_white.tres" id="9_b5f6u"]
 
 [node name="main" type="Node"]
 script = ExtResource("1_4j5ol")
@@ -41,27 +41,31 @@ enemyData = ExtResource("6_b5f6u")
 position = Vector2(55, 158)
 
 [node name="item" parent="item_container" instance=ExtResource("5_0ha60")]
+item_data = ExtResource("7_p1hux")
 
 [node name="item4" parent="item_container" instance=ExtResource("5_0ha60")]
 position = Vector2(-140, 26)
+item_data = ExtResource("7_p1hux")
 
 [node name="item5" parent="item_container" instance=ExtResource("5_0ha60")]
 position = Vector2(-237, 202)
+item_data = ExtResource("7_p1hux")
 
 [node name="item6" parent="item_container" instance=ExtResource("5_0ha60")]
 position = Vector2(48, -484)
-item_data = ExtResource("7_p1hux")
+item_data = ExtResource("9_b5f6u")
 
 [node name="item7" parent="item_container" instance=ExtResource("5_0ha60")]
 position = Vector2(143, -345)
-item_data = ExtResource("8_of57s")
+item_data = ExtResource("9_b5f6u")
 
 [node name="item8" parent="item_container" instance=ExtResource("5_0ha60")]
 position = Vector2(-13, -521)
+item_data = ExtResource("7_p1hux")
 
 [node name="item3" parent="item_container" instance=ExtResource("5_0ha60")]
 position = Vector2(-15, -458)
-item_data = ExtResource("8_of57s")
+item_data = ExtResource("9_b5f6u")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

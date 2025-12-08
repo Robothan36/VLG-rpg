@@ -16,6 +16,11 @@ var enemy_ressource_paket : Resource
 var player_position = Vector2(70,-340)
 
 var defeated_enemy_array = []
+var used_item_array = []
+
+var menu_open : bool
+
+
 
 func _ready() -> void:
 	reset_game()
@@ -25,6 +30,8 @@ func _ready() -> void:
 func reset_game():
 	
 	defeated_enemy_array = []
+	used_item_array = []
+	
 	player_position = Vector2(70,-340)
 	
 	var attack_1 = load("res://code/player_attack_resource/ressource/benutzt_fachsprache.tres")

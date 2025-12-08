@@ -1,23 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://bug14mc6ienlr"]
+[gd_scene load_steps=4 format=3 uid="uid://bug14mc6ienlr"]
 
-[ext_resource type="Resource" uid="uid://lrn8tk6pn6n" path="res://code/items_scripts and ressources/ressource/monster_white.tres" id="1_4w2rt"]
-
-[sub_resource type="GDScript" id="GDScript_akoh1"]
-script/source = "extends Node2D
-
-
-@export var item_data: ItemData
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	#print(self.name, \" is here\")
-	$Sprite2D.texture = item_data.icon
-
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.name == \"player\":
-		print(item_data.name, \" has been collected\")
-		Global.inventory.append(item_data)
-		self.queue_free()
-"
+[ext_resource type="Script" uid="uid://cln0fr1uq1ruy" path="res://code/game_scripts/item.gd" id="1_4w2rt"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_4w2rt"]
 size = Vector2(8, 8)
@@ -26,8 +9,7 @@ size = Vector2(8, 8)
 size = Vector2(10, 10)
 
 [node name="item" type="Node2D"]
-script = SubResource("GDScript_akoh1")
-item_data = ExtResource("1_4w2rt")
+script = ExtResource("1_4w2rt")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1.4210855e-14, 1.4210855e-14)

@@ -4,6 +4,9 @@ var attack_name: String
 var stamina_cost: int
 var damage : int
 var heal : int
+
+var play_able = true
+
 @onready var button: Button = $Button
 @onready var description: Label = $description
 @onready var cost: Label = $cost
@@ -12,6 +15,8 @@ signal attack_used
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if play_able == false: 
+		button.visible = false
 	cost.text = "cost: " + str(stamina_cost)
 	description.text = "this will do " + str(damage)  + " damage"
 	
