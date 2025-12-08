@@ -59,7 +59,7 @@ func save_game():
 	# 2 xp
 	file.store_var(stamina)
 	# 3 stamina
-	file.store_var(inventory)
+	file.store_var(save_res(inventory))
 	# 4 inventory
 	file.store_var(save_res(attack_equip))
 	print("save was : ", save_res(attack_equip))
@@ -78,7 +78,7 @@ func load_game():
 		health = file.get_var()
 		xp = file.get_var()
 		stamina = file.get_var()
-		inventory = file.get_var()
+		inventory = load_res(file.get_var(),"res://code/items_scripts and ressources/ressource/")
 		attack_equip = load_res(file.get_var(),"res://code/player_attack_resource/ressource/")
 		
 		player_position = file.get_var()

@@ -152,5 +152,6 @@ func player_attack(damage,heal):
 	enemy_turn()
 	
 func end_fight():
+	Global.save_game()
 	Global.load_game()
 	get_tree().change_scene_to_file("res://scene/main.tscn")
