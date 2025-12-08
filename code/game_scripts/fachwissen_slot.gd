@@ -18,9 +18,9 @@ func _ready() -> void:
 	if play_able == false: 
 		button.visible = false
 	cost.text = "cost: " + str(stamina_cost)
-	description.text = "this will do " + str(damage)  + " damage"
+	description.text = "-"  + attack_name + "-" + " wird " + str(damage)  + " Eindruck machen."
 	
-	button.text = "play"
+	button.text = "Nutze"
 	
 
 func _physics_process(delta: float) -> void:

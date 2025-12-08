@@ -16,7 +16,7 @@ enum difficulties {
 	boss}
 
 @export var id: String
-@export var name: String
+@export var name_of_enemy: String
 @export var description: String
 @export var texture: Texture2D
 @export var subject: subject_pool

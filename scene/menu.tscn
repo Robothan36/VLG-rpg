@@ -115,7 +115,7 @@ text = "Back"
 z_index = -1
 layout_mode = 2
 mouse_filter = 2
-color = Color(0.5529412, 0.25882354, 0.019607844, 0.52156866)
+color = Color(1, 1, 1, 0.48235294)
 
 [connection signal="pressed" from="MarginContainer/menu/items" to="." method="_on_items_pressed"]
 [connection signal="pressed" from="MarginContainer/menu/speichern" to="." method="_on_speichern_pressed"]

@@ -3,12 +3,26 @@ class_name enemy
 
 @export var enemyData: enemy_data
 
+enum orientation_list {left,right,up,down}
+
+@export var orientation : orientation_list
 
 @onready var ray_cast_2d: RayCast2D = $RayCast2D
 var detected_player = false
 var speed = 0.5
 
-
+func _ready() -> void:
+	$Sprite2D.texture = enemyData.texture
+	#
+	#if orientation == orientation_list.up:
+		#ray_cast_2d.rotation = 0
+	#elif orientation == orientation_list.down:
+		#ray_cast_2d.rotation = 180
+	#elif orientation == orientation_list.right:
+		#ray_cast_2d.rotation = 90
+	#elif orientation == orientation_list.left:
+		#ray_cast_2d.rotation = 270
+	pass
 
 func _physics_process(delta: float) -> void:
 	if ray_cast_2d.get_collider() and detected_player == false:

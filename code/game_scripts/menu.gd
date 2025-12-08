@@ -16,6 +16,12 @@ extends Control
 @onready var fähigkeiten_menu: MarginContainer = $MarginContainer/fähigkeiten_menu
 @onready var fähigkeiten_v_container: VBoxContainer = $MarginContainer/fähigkeiten_menu/VBoxContainer/ScrollContainer/fähigkeiten_v_container
 
+func _physics_process(delta: float) -> void:
+	get_parent().get_node("health").text =  str(Global.health) + ("/") + str(Global.max_health) + " "
+	get_parent().get_node("stamina").text = str(Global.stamina) + "/" + str(Global.max_stamina) + " "
+	
+		
+	
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	menu.visible = true

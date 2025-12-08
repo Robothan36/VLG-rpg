@@ -47,6 +47,7 @@ func use_attack(attack):
 	var incoming_damage = attack.damage * get_parent().enemy_ressource.strenght
 	Global.health -= incoming_damage
 	get_parent().enemy_ressource.health += attack.self_heal
+#	get_node("info_text").text = attack.name_of_attack
 	
 	# Hier wird die Attack ausgeführt
 			

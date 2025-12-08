@@ -1,12 +1,18 @@
-[gd_resource type="Resource" script_class="enemy_data" load_steps=2 format=3 uid="uid://bijoxagl2l8hp"]
+[gd_resource type="Resource" script_class="enemy_data" load_steps=4 format=3 uid="uid://bijoxagl2l8hp"]
 
 [ext_resource type="Script" uid="uid://cpfdbc74b5c3n" path="res://code/enemy ressources and sripts/enemy_data_.gd" id="1_c1vmo"]
+[ext_resource type="Texture2D" uid="uid://ccif0kdex5tha" path="res://assests/sprite_sheet.png" id="2_7kmkg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_urdcw"]
+atlas = ExtResource("2_7kmkg")
+region = Rect2(0, 16, 32, 32)
 
 [resource]
 script = ExtResource("1_c1vmo")
 id = "0"
-name = "Math teacher"
+name_of_enemy = "Mathlehrer"
 description = "ein energetischer Matherlehrer"
-health = 30
+texture = SubResource("AtlasTexture_urdcw")
+health = 40
 strenght = 1.2
 metadata/_custom_type_script = "uid://cpfdbc74b5c3n"

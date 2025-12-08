@@ -9,15 +9,18 @@ script = ExtResource("1_3usqm")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 2
+theme_override_font_sizes/font_size = 5
+text = "Play"
 
 [node name="description" type="Label" parent="."]
 layout_mode = 2
-theme_override_font_sizes/font_size = 8
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 5
+text = "this will do so much damage"
 
 [node name="cost" type="Label" parent="."]
 layout_mode = 2
-
-[node name="fachwissen_slot" type="Control" parent="."]
-layout_mode = 2
+theme_override_font_sizes/font_size = 5
+text = "cost 3"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

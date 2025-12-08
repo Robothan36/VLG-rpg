@@ -2,35 +2,40 @@ extends Node
 
 #enemy stats
 @onready var enemy_health_label: Label = $visuals/enemy/enemy_health_label
+@onready var enemy_name: Label = $visuals/enemy/enemy_name
 
 #stats
-@onready var health: Label = $Control/HBoxContainer/stats/VBoxContainer/health
-@onready var stamina: Label = $Control/HBoxContainer/stats/VBoxContainer/stamina
-@onready var xp: Label = $Control/HBoxContainer/stats/VBoxContainer/xp
+@onready var health: Label = $Control/MarginContainer/HBoxContainer/stats/VBoxContainer/health
+@onready var stamina: Label = $Control/MarginContainer/HBoxContainer/stats/VBoxContainer/stamina
+@onready var xp: Label = $Control/MarginContainer/HBoxContainer/stats/VBoxContainer/xp
 
 
 
 
 #menu
-@onready var menu: MarginContainer = $Control/HBoxContainer/menu
-@onready var basic_attack: Button = $"Control/HBoxContainer/menu/HBoxContainer/VBoxContainer/basic attack"
-@onready var items: Button = $Control/HBoxContainer/menu/HBoxContainer/VBoxContainer2/items
-@onready var run: Button = $Control/HBoxContainer/menu/HBoxContainer/VBoxContainer2/run
-@onready var abilities: Button = $Control/HBoxContainer/menu/HBoxContainer/VBoxContainer/abilities
+@onready var menu: MarginContainer = $Control/MarginContainer/HBoxContainer/menu
+@onready var abilities: Button = $Control/MarginContainer/HBoxContainer/menu/HBoxContainer/VBoxContainer/abilities
+@onready var basic_attack: Button = $"Control/MarginContainer/HBoxContainer/menu/HBoxContainer/VBoxContainer/basic attack"
+@onready var items: Button = $Control/MarginContainer/HBoxContainer/menu/HBoxContainer/VBoxContainer2/items
+@onready var run: Button = $Control/MarginContainer/HBoxContainer/menu/HBoxContainer/VBoxContainer2/run
 
 
 #items
-@onready var items_menu: MarginContainer = $Control/HBoxContainer/items_menu
-@onready var item_v_container: VBoxContainer = $Control/HBoxContainer/items_menu/VBoxContainer/ScrollContainer/item_v_container
+@onready var items_menu: MarginContainer = $Control/MarginContainer/HBoxContainer/items_menu
+@onready var item_v_container: VBoxContainer = $Control/MarginContainer/HBoxContainer/items_menu/VBoxContainer/ScrollContainer/item_v_container
 
 #attacks
-@onready var fachwissen_menu: MarginContainer = $Control/HBoxContainer/Fachwissen_menu
-@onready var attack_container: VBoxContainer = $Control/HBoxContainer/Fachwissen_menu/VBoxContainer/ScrollContainer/attack_container
+@onready var fachwissen_menu: MarginContainer = $Control/MarginContainer/HBoxContainer/Fachwissen_menu
+@onready var attack_container: VBoxContainer = $Control/MarginContainer/HBoxContainer/Fachwissen_menu/VBoxContainer/ScrollContainer/attack_container
+@onready var player: Sprite2D = $visuals/player
+@onready var enemy: Sprite2D = $visuals/enemy
+
 
 
 var enemy_ressource
 
 func _ready() -> void:
+	
 	
 	items_menu.visible = false
 	fachwissen_menu.visible = false
@@ -40,6 +45,9 @@ func _ready() -> void:
 		enemy_ressource = Global.enemy_ressource_paket.duplicate()
 	else: 
 		enemy_ressource = load("res://code/enemy ressources and sripts/enemy_ressources/math_teacher.tres")
+		
+	enemy.texture = enemy_ressource.texture
+	enemy_name.text = enemy_ressource.name_of_enemy
 
 func _process(delta: float) -> void:
 	health.text = "Health: " + str(Global.health) + "/" + str(Global.max_health)
@@ -106,6 +114,7 @@ func enemy_turn():
 	
 	var instance = preload("res://scene/attack.tscn")
 	var attack_scene = instance.instantiate()
+	
 	attack_scene.subject = enemy_ressource.subject
 	add_child(attack_scene)
 

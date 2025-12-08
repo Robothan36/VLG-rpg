@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="attackData" load_steps=2 format=3 uid="uid://gt0h2u22a33a"]
+
+[ext_resource type="Script" uid="uid://bujlrqrhe6kf" path="res://code/attack_script and ressources/attack_data.gd" id="1_3fehf"]
+
+[resource]
+script = ExtResource("1_3fehf")
+related_subject = 1
+name_of_attack = "Welches Reimschema ist das?"
+damage = 5
+prop = 3
+metadata/_custom_type_script = "uid://bujlrqrhe6kf"
