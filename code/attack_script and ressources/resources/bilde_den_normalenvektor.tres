@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="attackData" load_steps=2 format=3 uid="uid://dr5x4c4fk4vtv"]
+
+[ext_resource type="Script" uid="uid://bujlrqrhe6kf" path="res://code/attack_script and ressources/attack_data.gd" id="1_hhvs7"]
+
+[resource]
+script = ExtResource("1_hhvs7")
+name_of_attack = "Bilde den Normalenvektor"
+damage = 1
+prop = 1
+metadata/_custom_type_script = "uid://bujlrqrhe6kf"

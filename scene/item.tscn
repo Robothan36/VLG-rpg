@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://bug14mc6ienlr"]
+
+[ext_resource type="Script" uid="uid://cln0fr1uq1ruy" path="res://code/game_scripts/item.gd" id="1_4w2rt"]
+[ext_resource type="Texture2D" uid="uid://dxqbits2gye7k" path="res://assests/item_sprite_sheet.png" id="2_akoh1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_akoh1"]
+size = Vector2(16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vng7q"]
+atlas = ExtResource("2_akoh1")
+region = Rect2(16, 0, 16, 16)
+
+[node name="item" type="Node2D"]
+script = ExtResource("1_4w2rt")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 0.75)
+shape = SubResource("RectangleShape2D_akoh1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1.4210855e-14, 1.4210855e-14)
+texture = SubResource("AtlasTexture_vng7q")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

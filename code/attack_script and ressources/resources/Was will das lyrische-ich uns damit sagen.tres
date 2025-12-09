@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="attackData" load_steps=2 format=3 uid="uid://yv5dtynulu52"]
+
+[ext_resource type="Script" uid="uid://bujlrqrhe6kf" path="res://code/attack_script and ressources/attack_data.gd" id="1_d6m63"]
+
+[resource]
+script = ExtResource("1_d6m63")
+related_subject = 1
+name_of_attack = "Was will das lyrischeich uns damit sagen?"
+damage = 3
+prop = 3
+metadata/_custom_type_script = "uid://bujlrqrhe6kf"

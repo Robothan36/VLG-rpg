@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://bc8msvoxt3yto"]
+
+[ext_resource type="Texture2D" uid="uid://dxqbits2gye7k" path="res://assests/item_sprite_sheet.png" id="1_jdauj"]
+[ext_resource type="Script" uid="uid://bwea8hts1ojj3" path="res://code/items_scripts and ressources/item_data.gd" id="1_jhy8r"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2qo8u"]
+atlas = ExtResource("1_jdauj")
+region = Rect2(32, 0, 16, 16)
+
+[resource]
+script = ExtResource("1_jhy8r")
+id = "1"
+name = "dextro Energy"
+description = "Will give you 1 Stamina"
+icon = SubResource("AtlasTexture_2qo8u")
+function = "dextro_energy"
+metadata/_custom_type_script = "uid://bwea8hts1ojj3"

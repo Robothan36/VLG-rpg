@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cklkj35cb7lrk"]
+
+[ext_resource type="Texture2D" uid="uid://ccif0kdex5tha" path="res://assests/sprite_sheet.png" id="1_4flbx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4flbx"]
+size = Vector2(18, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xo3ru"]
+atlas = ExtResource("1_4flbx")
+region = Rect2(32, 0, 32, 32)
+
+[node name="player" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_4flbx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_xo3ru")

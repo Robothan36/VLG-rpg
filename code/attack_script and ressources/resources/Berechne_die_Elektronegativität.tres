@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="attackData" load_steps=2 format=3 uid="uid://xeilbqsxok2x"]
+
+[ext_resource type="Script" uid="uid://bujlrqrhe6kf" path="res://code/attack_script and ressources/attack_data.gd" id="1_ckb6h"]
+
+[resource]
+script = ExtResource("1_ckb6h")
+name_of_attack = "Berechne die Elektronegativität"
+damage = 4
+prop = 4
+metadata/_custom_type_script = "uid://bujlrqrhe6kf"

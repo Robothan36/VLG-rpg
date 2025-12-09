@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="attackData" load_steps=2 format=3 uid="uid://cg2hgdros7dmi"]
+
+[ext_resource type="Script" uid="uid://bujlrqrhe6kf" path="res://code/attack_script and ressources/attack_data.gd" id="1_kkugr"]
+
+[resource]
+script = ExtResource("1_kkugr")
+name_of_attack = "Zeichne_den_huffmanbaum.tres"
+damage = 4
+prop = 2
+metadata/_custom_type_script = "uid://bujlrqrhe6kf"

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://lrn8tk6pn6n"]
+
+[ext_resource type="Texture2D" uid="uid://dxqbits2gye7k" path="res://assests/item_sprite_sheet.png" id="1_gg308"]
+[ext_resource type="Script" uid="uid://bwea8hts1ojj3" path="res://code/items_scripts and ressources/item_data.gd" id="2_sqfpy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sqfpy"]
+atlas = ExtResource("1_gg308")
+region = Rect2(0, 0, 16, 16)
+
+[resource]
+script = ExtResource("2_sqfpy")
+id = "0"
+name = "monster white"
+description = "will give you 3 stamina"
+icon = SubResource("AtlasTexture_sqfpy")
+function = "monster_white"
+metadata/_custom_type_script = "uid://bwea8hts1ojj3"
