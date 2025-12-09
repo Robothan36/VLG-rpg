@@ -29,6 +29,7 @@ func _physics_process(delta: float) -> void:
 		var col = ray_cast_2d.get_collider()
 		if col.name == "player":
 			print("player spotted")
+			Global.detection = true
 			detected_player = true
 			velocity = ( col.position - self.position ) * speed
 	# this check is the enemy sees the player via raycast2d

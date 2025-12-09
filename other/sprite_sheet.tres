@@ -8,6 +8,19 @@ texture = ExtResource("1_k3uuf")
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
 1:1/0 = 0
+8:6/size_in_atlas = Vector2i(2, 2)
+8:6/0 = 0
+6:6/0 = 0
+14:4/size_in_atlas = Vector2i(2, 2)
+14:4/0 = 0
+0:6/size_in_atlas = Vector2i(2, 2)
+0:6/0 = 0
+10:6/size_in_atlas = Vector2i(4, 2)
+10:6/0 = 0
+14:6/size_in_atlas = Vector2i(2, 2)
+14:6/0 = 0
+3:7/0 = 0
+3:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -3.7770338, 8, -8, 6.0252686, -8, -0.9892216)
 
 [resource]
 physics_layer_0/collision_layer = 1

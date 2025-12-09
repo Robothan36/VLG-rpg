@@ -19,7 +19,7 @@ var defeated_enemy_array = []
 var used_item_array = []
 
 var menu_open : bool
-
+var detection : bool
 
 
 func _ready() -> void:
@@ -28,6 +28,8 @@ func _ready() -> void:
 
 
 func reset_game():
+	
+	detection = false
 	
 	defeated_enemy_array = []
 	used_item_array = []
