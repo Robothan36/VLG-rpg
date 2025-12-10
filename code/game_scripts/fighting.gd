@@ -9,16 +9,12 @@ extends Node
 @onready var stamina: Label = $Control/MarginContainer/HBoxContainer/stats/VBoxContainer/stamina
 @onready var xp: Label = $Control/MarginContainer/HBoxContainer/stats/VBoxContainer/xp
 
-
-
-
 #menu
 @onready var menu: MarginContainer = $Control/MarginContainer/HBoxContainer/menu
 @onready var abilities: Button = $Control/MarginContainer/HBoxContainer/menu/HBoxContainer/VBoxContainer/abilities
 @onready var basic_attack: Button = $"Control/MarginContainer/HBoxContainer/menu/HBoxContainer/VBoxContainer/basic attack"
 @onready var items: Button = $Control/MarginContainer/HBoxContainer/menu/HBoxContainer/VBoxContainer2/items
 @onready var run: Button = $Control/MarginContainer/HBoxContainer/menu/HBoxContainer/VBoxContainer2/run
-
 
 #items
 @onready var items_menu: MarginContainer = $Control/MarginContainer/HBoxContainer/items_menu
@@ -34,12 +30,12 @@ extends Node
 @onready var info: MarginContainer = $Control/MarginContainer/HBoxContainer/info
 @onready var info_label: Label = $Control/MarginContainer/HBoxContainer/info/info_label
 
+# other stuff
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-
 var enemy_ressource
-
 var info_text := "this is a test for the info text"
 
+# engine functions
 func _ready() -> void:
 	menu.visible = true
 	info.visible = false
@@ -77,7 +73,9 @@ func _process(delta: float) -> void:
 	if enemy_ressource.health <= 0:
 		print("enemy lost")
 		end_fight()
-			
+
+
+# menu buttons and open folder
 func _on_items_pressed() -> void:
 	info.visible = false
 	menu.visible = false
@@ -98,51 +96,6 @@ func _on_items_pressed() -> void:
 		# retrieves every item from the global array inventory and instances an button-scene with its name
 		# button press is connected to item_used() 
 	
-func item_used(name_item,function,item_res):
-	
-	
-	if GlobalItemsFunc.has_method(function):
-		GlobalItemsFunc.call(function)
-		print("used succesful")
-		
-	# important to check wether method exist or a typo happened somewhere. 
-	# when is exists the funktion is beeing called
-		
-	else: 
-		print("the method: ", function, " was not found in global_items_func")
-		
-	Global.inventory.erase(item_res)
-	enemy_turn()
-	
-func _on_run_pressed() -> void:
-	end_fight()
-
-func _on_basic_attack_pressed() -> void:
-	info.visible = false
-	enemy_ressource.health -= Global.allgemeinwissen
-	enemy_turn()
-
-	
-func enemy_turn():
-	end_player_turn()
-	info.visible = true
-	animation_player.play("info_animation")
-	
-	var instance = preload("res://scene/attack.tscn")
-	var attack_scene = instance.instantiate()
-	
-	attack_scene.subject = enemy_ressource.subject
-	add_child(attack_scene)
-
-func _on_back_item_menu_pressed() -> void:
-	
-	for child in item_v_container.get_children():
-		child.queue_free()
-	
-	items_menu.visible = false
-	menu.visible = true
-
-
 func _on_abilities_pressed() -> void:
 	info.visible = false
 	menu.visible = false
@@ -161,7 +114,45 @@ func _on_abilities_pressed() -> void:
 		
 		attack_container.add_child(slot)
 		
+func _on_basic_attack_pressed() -> void:
+	info.visible = false
+	enemy_ressource.health -= Global.allgemeinwissen
+	enemy_turn()
+		
+func _on_run_pressed() -> void:
+	end_fight()
+	
+	
+#using items/abilities
+func player_attack(damage,heal):
+	Global.health += heal
+	
+	enemy_ressource.health -= damage
+	enemy_turn()
+	
+func item_used(name_item,function,item_res):
+	if GlobalItemsFunc.has_method(function):
+		GlobalItemsFunc.call(function)
+		print("used succesful")
+		
+	# important to check wether method exist or a typo happened somewhere. 
+	# when is exists the funktion is beeing called
+		
+	else: 
+		print("the method: ", function, " was not found in global_items_func")
+		
+	Global.inventory.erase(item_res)
+	enemy_turn()
 
+
+# back from menus
+func _on_back_item_menu_pressed() -> void:
+	
+	for child in item_v_container.get_children():
+		child.queue_free()
+	
+	items_menu.visible = false
+	menu.visible = true
 
 func _on_back_attack_menu_pressed() -> void:
 	
@@ -172,21 +163,24 @@ func _on_back_attack_menu_pressed() -> void:
 	menu.visible = true
 
 
-func player_attack(damage,heal):
-	Global.health += heal
-	
-	enemy_ressource.health -= damage
-	enemy_turn()
-	
-	
-	
+# handling end of fight and other turns
 func end_fight():
 	Global.save_game()
 	Global.load_game()
 	Global.detection = false
 	get_tree().change_scene_to_file("res://scene/main.tscn")
 	
+func enemy_turn():
+	end_player_turn()
+	info.visible = true
+	animation_player.play("info_animation")
 	
+	var instance = preload("res://scene/attack.tscn")
+	var attack_scene = instance.instantiate()
+	
+	attack_scene.subject = enemy_ressource.subject
+	add_child(attack_scene)
+
 func end_player_turn():
 	
 	for child in attack_container.get_children():
@@ -194,5 +188,4 @@ func end_player_turn():
 	for child in item_v_container.get_children():
 		child.queue_free()
 		
-
-	
+		
