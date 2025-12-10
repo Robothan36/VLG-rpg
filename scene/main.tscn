@@ -30,7 +30,7 @@ layer_0/tile_data = PackedInt32Array(917501, 65536, 0, 983037, 65536, 0, 1048573
 [node name="enemy_container" type="Node2D" parent="."]
 
 [node name="enemy" parent="enemy_container" instance=ExtResource("4_brvut")]
-position = Vector2(-238, -268)
+position = Vector2(40, -336)
 rotation = -1.5725852
 enemyData = ExtResource("6_b5f6u")
 orientation = 1

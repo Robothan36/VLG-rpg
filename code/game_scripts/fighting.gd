@@ -30,11 +30,17 @@ extends Node
 @onready var player: Sprite2D = $visuals/player
 @onready var enemy: Sprite2D = $visuals/enemy
 
+# info
+@onready var info: MarginContainer = $Control/MarginContainer/HBoxContainer/info
+@onready var info_label: Label = $Control/MarginContainer/HBoxContainer/info/info_label
 
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 var enemy_ressource
 
 func _ready() -> void:
+	menu.visible = true
+	info.visible = false
 	
 	
 	items_menu.visible = false
@@ -69,6 +75,7 @@ func _process(delta: float) -> void:
 		end_fight()
 			
 func _on_items_pressed() -> void:
+	info.visible = false
 	menu.visible = false
 	items_menu.visible = true
 	#the menu should be hidden and the item menu should be visible now
@@ -107,11 +114,14 @@ func _on_run_pressed() -> void:
 	end_fight()
 
 func _on_basic_attack_pressed() -> void:
+	info.visible = false
 	enemy_ressource.health -= Global.allgemeinwissen
 	enemy_turn()
 
 	
 func enemy_turn():
+	info.visible = true
+	animation_player.play("info_animation")
 	
 	var instance = preload("res://scene/attack.tscn")
 	var attack_scene = instance.instantiate()
@@ -120,6 +130,7 @@ func enemy_turn():
 	add_child(attack_scene)
 
 func _on_back_item_menu_pressed() -> void:
+	
 	for child in item_v_container.get_children():
 		child.queue_free()
 	
@@ -128,6 +139,7 @@ func _on_back_item_menu_pressed() -> void:
 
 
 func _on_abilities_pressed() -> void:
+	info.visible = false
 	menu.visible = false
 	fachwissen_menu.visible = true
 	
@@ -147,6 +159,7 @@ func _on_abilities_pressed() -> void:
 
 
 func _on_back_attack_menu_pressed() -> void:
+	
 	for child in attack_container.get_children():
 		child.queue_free()
 	

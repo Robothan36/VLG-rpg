@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://78mqed0x2a3q"]
+[gd_scene load_steps=8 format=3 uid="uid://78mqed0x2a3q"]
 
 [ext_resource type="Script" uid="uid://ctxch1gcviwep" path="res://code/game_scripts/fighting.gd" id="1_ordpl"]
 [ext_resource type="Texture2D" uid="uid://ccif0kdex5tha" path="res://assests/sprite_sheet.png" id="2_lfnlm"]
@@ -9,6 +9,90 @@ region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ordpl"]
 size = Vector2(80, 40)
+
+[sub_resource type="Animation" id="Animation_lfnlm"]
+resource_name = "info_animation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/MarginContainer/HBoxContainer/info:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.96),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/MarginContainer/HBoxContainer/menu:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/MarginContainer/HBoxContainer/items_menu:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/MarginContainer/HBoxContainer/Fachwissen_menu:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_pyqvx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/MarginContainer/HBoxContainer/info:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/MarginContainer/HBoxContainer/menu:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vq8ku"]
+_data = {
+&"RESET": SubResource("Animation_pyqvx"),
+&"info_animation": SubResource("Animation_lfnlm")
+}
 
 [node name="fighting" type="Node"]
 script = ExtResource("1_ordpl")
@@ -178,10 +262,26 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 10
 text = "back"
 
+[node name="info" type="MarginContainer" parent="Control/MarginContainer/HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(200, 120)
+layout_mode = 2
+
+[node name="info_label" type="Label" parent="Control/MarginContainer/HBoxContainer/info"]
+layout_mode = 2
+text = "test
+"
+horizontal_alignment = 1
+
 [node name="ColorRect" type="ColorRect" parent="Control/MarginContainer"]
 layout_mode = 2
 mouse_filter = 2
 color = Color(0.33333334, 0.6431373, 0.9843137, 0.7764706)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_vq8ku")
+}
 
 [connection signal="pressed" from="Control/MarginContainer/HBoxContainer/menu/HBoxContainer/VBoxContainer/abilities" to="." method="_on_abilities_pressed"]
 [connection signal="pressed" from="Control/MarginContainer/HBoxContainer/menu/HBoxContainer/VBoxContainer/basic attack" to="." method="_on_basic_attack_pressed"]
@@ -189,3 +289,4 @@ color = Color(0.33333334, 0.6431373, 0.9843137, 0.7764706)
 [connection signal="pressed" from="Control/MarginContainer/HBoxContainer/menu/HBoxContainer/VBoxContainer2/run" to="." method="_on_run_pressed"]
 [connection signal="pressed" from="Control/MarginContainer/HBoxContainer/items_menu/VBoxContainer/back_item_menu" to="." method="_on_back_item_menu_pressed"]
 [connection signal="pressed" from="Control/MarginContainer/HBoxContainer/Fachwissen_menu/VBoxContainer/back_attack_menu" to="." method="_on_back_attack_menu_pressed"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

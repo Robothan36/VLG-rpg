@@ -47,7 +47,10 @@ func use_attack(attack):
 	var incoming_damage = attack.damage * get_parent().enemy_ressource.strenght
 	Global.health -= incoming_damage
 	get_parent().enemy_ressource.health += attack.self_heal
-#	get_node("info_text").text = attack.name_of_attack
+	print(get_node("$Control/MarginContainer/HBoxContainer/info/info_label"), " is the node i got")
+	print(get_tree().current_scene.get_node("info_label"), " second try")
+	
+	#get_node("info_label").text = attack.name_of_attack
 	
 	# Hier wird die Attack ausgeführt
 			
