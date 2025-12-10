@@ -124,6 +124,7 @@ func _on_basic_attack_pressed() -> void:
 
 	
 func enemy_turn():
+	end_player_turn()
 	info.visible = true
 	animation_player.play("info_animation")
 	
@@ -175,12 +176,23 @@ func player_attack(damage,heal):
 	Global.health += heal
 	
 	enemy_ressource.health -= damage
-	
 	enemy_turn()
+	
+	
 	
 func end_fight():
 	Global.save_game()
 	Global.load_game()
 	Global.detection = false
 	get_tree().change_scene_to_file("res://scene/main.tscn")
+	
+	
+func end_player_turn():
+	
+	for child in attack_container.get_children():
+		child.queue_free()
+	for child in item_v_container.get_children():
+		child.queue_free()
+		
+
 	
