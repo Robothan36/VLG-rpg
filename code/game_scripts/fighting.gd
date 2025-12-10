@@ -38,6 +38,8 @@ extends Node
 
 var enemy_ressource
 
+var info_text := "this is a test for the info text"
+
 func _ready() -> void:
 	menu.visible = true
 	info.visible = false
@@ -59,6 +61,8 @@ func _process(delta: float) -> void:
 	health.text = "Health: " + str(Global.health) + "/" + str(Global.max_health)
 	stamina.text = "Stamina: " + str(Global.stamina) + "/" + str(Global.max_stamina)
 	xp.text = "XP : " + str(Global.xp) 
+	
+	info_label.text = enemy_ressource.name_of_enemy + " benutzt "+  info_text
 	
 	enemy_health_label.text = "Health: " + str(enemy_ressource.health)
 	
