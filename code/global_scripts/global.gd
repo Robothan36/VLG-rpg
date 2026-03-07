@@ -41,6 +41,7 @@ func reset_game():
 	var attack_1 = load("res://code/player_attack_resource/ressource/benutzt_fachsprache.tres")
 	var attack_2 = load("res://code/player_attack_resource/ressource/pq_formel.tres")
 	var attack_3 = load("res://code/player_attack_resource/ressource/Periodensystem.tres")
+	
 	attack_equip.append(attack_1)
 	attack_equip.append(attack_2)
 	attack_equip.append(attack_3)

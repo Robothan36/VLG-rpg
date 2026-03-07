@@ -1,16 +1,20 @@
 extends Node
 
-@onready var health: Label = $CanvasLayer/health
-@onready var player: CharacterBody2D = $player
-@onready var enemy_container: Node2D = $enemy_container
-@onready var canvas_layer: CanvasLayer = $CanvasLayer
-@onready var item_container: Node2D = $item_container
-@onready var stamina: Label = $CanvasLayer/stamina
+
+# node 2d
+@onready var player: CharacterBody2D = $Node2D/player
+@onready var enemy_container: Node2D = $Node2D/enemy_container
+@onready var item_container: Node2D = $Node2D/item_container
+
+#canvas layer
+@onready var canvas_layer: CanvasLayer = $Node/CanvasLayer
+@onready var health: Label = $Node/CanvasLayer/health
+@onready var stamina: Label = $Node/CanvasLayer/stamina
 
 var menu_open = false
 
 func _ready() -> void:
-	player.position = Global.player_position
+#	player.position = Global.player_position
 	check_for_defeated_enemy()
 	
 

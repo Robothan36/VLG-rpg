@@ -1,5 +1,5 @@
 extends Node
-
+var info_text := ""
 #enemy stats
 @onready var enemy_health_label: Label = $visuals/enemy/enemy_health_label
 @onready var enemy_name: Label = $visuals/enemy/enemy_name
@@ -33,19 +33,33 @@ extends Node
 # other stuff
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 var enemy_ressource
-var info_text := "this is a test for the info text"
 
-# engine functions
+# -------------------------------------------------
+# INFO TEXT FUNCTION
+# -------------------------------------------------
+
+		
+func show_info(text):
+	menu.visible = false
+	items_menu.visible = false
+	fachwissen_menu.visible = false
+	info_label.text = text
+	info.visible = true
+	
+	if animation_player:
+		animation_player.play("info_animation")
+	
+# ENGINE FUNCTIONS
+# -------------------------------------------------
+
 func _ready() -> void:
 	menu.visible = true
 	info.visible = false
-	
 	
 	items_menu.visible = false
 	fachwissen_menu.visible = false
 	
 	if Global.enemy_ressource_paket:
-		
 		enemy_ressource = Global.enemy_ressource_paket.duplicate()
 	else: 
 		enemy_ressource = load("res://code/enemy ressources and sripts/enemy_ressources/math_teacher.tres")
@@ -54,98 +68,112 @@ func _ready() -> void:
 	enemy_name.text = enemy_ressource.name_of_enemy
 
 func _process(delta: float) -> void:
+
 	health.text = "Health: " + str(Global.health) + "/" + str(Global.max_health)
 	stamina.text = "Stamina: " + str(Global.stamina) + "/" + str(Global.max_stamina)
 	xp.text = "XP : " + str(Global.xp) 
 	
-	info_label.text = enemy_ressource.name_of_enemy + " benutzt "+  info_text
-	
 	enemy_health_label.text = "Health: " + str(enemy_ressource.health)
-	
-	# the player and enemy stats are updated every frame
-	# -> not needed, more efficent would be an update afer every action but it is easier this way
 	
 	if Global.health <= 0:
 		print("player lost")
 		Global.reset_game()
 		get_tree().change_scene_to_file("res://scene/main.tscn")
 		Global.detection = false
+		
 	if enemy_ressource.health <= 0:
 		print("enemy lost")
 		end_fight()
 
+# -------------------------------------------------
+# MENU BUTTONS
+# -------------------------------------------------
 
-# menu buttons and open folder
 func _on_items_pressed() -> void:
+
 	info.visible = false
 	menu.visible = false
 	items_menu.visible = true
-	#the menu should be hidden and the item menu should be visible now
 	
 	for i in Global.inventory:
+		
 		var instance = preload("res://scene/item_slot_in_menu.tscn")
 		var slot = instance.instantiate()
+		
 		slot.connect("item_was_used",Callable(self,"item_used"))
 		
 		slot.item_name = i.name
 		slot.item_var = i
-			
 		slot.item_function = i.function
-		item_v_container.add_child(slot)
 		
-		# retrieves every item from the global array inventory and instances an button-scene with its name
-		# button press is connected to item_used() 
-	
+		item_v_container.add_child(slot)
+
 func _on_abilities_pressed() -> void:
+
 	info.visible = false
 	menu.visible = false
 	fachwissen_menu.visible = true
 	
 	for i in Global.attack_equip:
+		
 		var instance = preload("res://scene/fachwissen_slot.tscn")
 		var slot = instance.instantiate()
 		
 		slot.attack_name = i.name_of_attack
-		slot.stamina_cost= i.stamina_cost
+		slot.stamina_cost = i.stamina_cost
 		slot.damage = i.damage
 		slot.heal = i.self_heal
 		
 		slot.connect("attack_used",Callable(self,"player_attack"))
 		
 		attack_container.add_child(slot)
-		
+
 func _on_basic_attack_pressed() -> void:
+
 	info.visible = false
+	
 	enemy_ressource.health -= Global.allgemeinwissen
+	
+	show_info("Du greifst an und machst " + str(Global.allgemeinwissen) + " Schaden!")
+	await get_tree().create_timer(1.5).timeout
 	enemy_turn()
-		
+
 func _on_run_pressed() -> void:
 	end_fight()
-	
-	
-#using items/abilities
+
+# -------------------------------------------------
+# PLAYER ACTIONS
+# -------------------------------------------------
+
 func player_attack(damage,heal):
+
 	Global.health += heal
-	
 	enemy_ressource.health -= damage
-	enemy_turn()
 	
+	show_info("Du greifst an und machst " + str(damage) + " Schaden!")
+	await get_tree().create_timer(1.5).timeout
+	
+	enemy_turn()
+
 func item_used(name_item,function,item_res):
+
 	if GlobalItemsFunc.has_method(function):
 		GlobalItemsFunc.call(function)
-		print("used succesful")
-		
-	# important to check wether method exist or a typo happened somewhere. 
-	# when is exists the funktion is beeing called
-		
+		show_info("Du benutzt " + name_item + "!")
 	else: 
 		print("the method: ", function, " was not found in global_items_func")
 		
 	Global.inventory.erase(item_res)
+	
+	show_info("Du benutzt "+ str(name_item))
+	await get_tree().create_timer(1.5).timeout
+	
 	enemy_turn()
 
+# -------------------------------------------------
+# BACK BUTTONS
+# -------------------------------------------------
 
-# back from menus
 func _on_back_item_menu_pressed() -> void:
 	
 	for child in item_v_container.get_children():
@@ -162,18 +190,23 @@ func _on_back_attack_menu_pressed() -> void:
 	fachwissen_menu.visible = false
 	menu.visible = true
 
+# -------------------------------------------------
+# FIGHT LOGIC
+# -------------------------------------------------
 
-# handling end of fight and other turns
 func end_fight():
+
 	Global.save_game()
 	Global.load_game()
 	Global.detection = false
-	get_tree().change_scene_to_file("res://scene/main.tscn")
 	
+	get_tree().change_scene_to_file("res://scene/main.tscn")
+
 func enemy_turn():
+
 	end_player_turn()
-	info.visible = true
-	animation_player.play("info_animation")
+	
+	show_info(enemy_ressource.name_of_enemy + " greift an!")
 	
 	var instance = preload("res://scene/attack.tscn")
 	var attack_scene = instance.instantiate()
@@ -182,10 +215,9 @@ func enemy_turn():
 	add_child(attack_scene)
 
 func end_player_turn():
-	
+
 	for child in attack_container.get_children():
 		child.queue_free()
+		
 	for child in item_v_container.get_children():
 		child.queue_free()
-		
-		
