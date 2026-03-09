@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cj7hij4fw8wgc"]
+[gd_scene load_steps=10 format=3 uid="uid://cj7hij4fw8wgc"]
 
 [ext_resource type="Script" uid="uid://buh5acrwwrqe3" path="res://code/game_scripts/main.gd" id="1_4j5ol"]
 [ext_resource type="PackedScene" uid="uid://cklkj35cb7lrk" path="res://scene/player.tscn" id="1_wp4xf"]
@@ -6,8 +6,6 @@
 [ext_resource type="TileSet" uid="uid://dqqm0qtkv7uxs" path="res://other/sprite_sheet.tres" id="3_0ha60"]
 [ext_resource type="PackedScene" uid="uid://c44riupt3vxmv" path="res://scene/enemy.tscn" id="4_brvut"]
 [ext_resource type="PackedScene" uid="uid://bug14mc6ienlr" path="res://scene/item.tscn" id="5_0ha60"]
-[ext_resource type="Resource" uid="uid://bijoxagl2l8hp" path="res://code/enemy ressources and sripts/enemy_ressources/math_teacher.tres" id="6_b5f6u"]
-[ext_resource type="Resource" uid="uid://dph31b3n35fgm" path="res://code/enemy ressources and sripts/enemy_ressources/deutschlehrer.tres" id="7_k65ib"]
 [ext_resource type="Resource" uid="uid://bc8msvoxt3yto" path="res://code/items_scripts and ressources/ressource/dextro_energy.tres" id="7_p1hux"]
 [ext_resource type="Resource" uid="uid://c3gnvw4qxebbf" path="res://code/items_scripts and ressources/ressource/space_kecks.tres" id="8_of57s"]
 [ext_resource type="Resource" uid="uid://lrn8tk6pn6n" path="res://code/items_scripts and ressources/ressource/monster_white.tres" id="9_b5f6u"]
@@ -32,37 +30,27 @@ layer_0/tile_data = PackedInt32Array(917501, 65536, 0, 983037, 65536, 0, 1048573
 [node name="enemy_container" type="Node2D" parent="Node2D"]
 
 [node name="enemy" parent="Node2D/enemy_container" instance=ExtResource("4_brvut")]
-position = Vector2(-176, -343.99997)
-rotation = -1.5725852
-enemyData = ExtResource("6_b5f6u")
+position = Vector2(-47.999985, -320)
 orientation = 1
 
 [node name="enemy3" parent="Node2D/enemy_container" instance=ExtResource("4_brvut")]
 position = Vector2(264, -184)
-enemyData = ExtResource("6_b5f6u")
 orientation = 3
 
 [node name="enemy4" parent="Node2D/enemy_container" instance=ExtResource("4_brvut")]
 position = Vector2(303, -92)
-rotation = 3.1415927
-enemyData = ExtResource("6_b5f6u")
 orientation = 2
 
 [node name="enemy5" parent="Node2D/enemy_container" instance=ExtResource("4_brvut")]
 position = Vector2(528, 80)
 rotation = 1.5707964
-enemyData = ExtResource("6_b5f6u")
 
 [node name="enemy6" parent="Node2D/enemy_container" instance=ExtResource("4_brvut")]
 position = Vector2(-32, 344)
 rotation = 3.1415927
-enemyData = ExtResource("6_b5f6u")
-orientation = 2
 
 [node name="enemy2" parent="Node2D/enemy_container" instance=ExtResource("4_brvut")]
 position = Vector2(-269, -437)
-rotation = -1.5707964
-enemyData = ExtResource("7_k65ib")
 orientation = 1
 
 [node name="item_container" type="Node2D" parent="Node2D"]
