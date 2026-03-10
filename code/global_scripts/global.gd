@@ -21,7 +21,7 @@ var used_item_array = []
 
 var menu_open : bool
 
-
+var last_enemy_attack : String
 
 func _ready() -> void:
 

@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dymrti2vjpuu1"]
+[gd_scene load_steps=3 format=3 uid="uid://dymrti2vjpuu1"]
 
 [ext_resource type="Script" uid="uid://c6xttv1mopnf1" path="res://code/game_scripts/menu.gd" id="1_e5g8k"]
+[ext_resource type="FontFile" uid="uid://cp4vbbfafnwqn" path="res://assests/Star Crush.ttf" id="2_8hxod"]
 
 [node name="menu" type="Control"]
 layout_mode = 3
@@ -34,31 +35,37 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/menu"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_8hxod")
 text = "Menu"
 horizontal_alignment = 1
 
 [node name="items" type="Button" parent="MarginContainer/menu"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_8hxod")
 theme_override_font_sizes/font_size = 10
 text = "Items"
 
 [node name="speichern" type="Button" parent="MarginContainer/menu"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_8hxod")
 theme_override_font_sizes/font_size = 10
 text = "Speichern"
 
 [node name="laden" type="Button" parent="MarginContainer/menu"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_8hxod")
 theme_override_font_sizes/font_size = 10
 text = "Laden"
 
 [node name="fähigkeiten" type="Button" parent="MarginContainer/menu"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_8hxod")
 theme_override_font_sizes/font_size = 10
 text = "Fähigkeiten"
 
 [node name="zurück" type="Button" parent="MarginContainer/menu"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_8hxod")
 theme_override_font_sizes/font_size = 10
 text = "Zurück"
 
@@ -72,6 +79,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/items_menu/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_8hxod")
 text = "Item - Menu"
 horizontal_alignment = 1
 
@@ -84,6 +92,7 @@ layout_mode = 2
 
 [node name="back_item_menu" type="Button" parent="MarginContainer/items_menu/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_8hxod")
 text = "Back"
 
 [node name="fähigkeiten_menu" type="MarginContainer" parent="MarginContainer"]
@@ -97,6 +106,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="MarginContainer/fähigkeiten_menu/VBoxContainer"]
 z_index = 10
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_8hxod")
 text = "Item - Menu"
 horizontal_alignment = 1
 
@@ -109,6 +119,7 @@ layout_mode = 2
 
 [node name="back_fähigkeiten_menu" type="Button" parent="MarginContainer/fähigkeiten_menu/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_8hxod")
 text = "Back"
 
 [node name="ColorRect" type="ColorRect" parent="MarginContainer"]

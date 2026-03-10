@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://0syvtdea8w3m"]
+[gd_scene load_steps=3 format=3 uid="uid://0syvtdea8w3m"]
 
 [ext_resource type="Script" uid="uid://diyen0pt7hjfr" path="res://code/game_scripts/fachwissen_slot.gd" id="1_3usqm"]
+[ext_resource type="FontFile" uid="uid://cp4vbbfafnwqn" path="res://assests/Star Crush.ttf" id="2_0sgj5"]
 
 [node name="fachwissen_slot" type="HBoxContainer"]
 offset_right = 40.0
@@ -9,17 +10,20 @@ script = ExtResource("1_3usqm")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_0sgj5")
 theme_override_font_sizes/font_size = 5
 text = "Play"
 
 [node name="description" type="Label" parent="."]
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_0sgj5")
 theme_override_font_sizes/font_size = 5
 text = "this will do so much damage"
 
 [node name="cost" type="Label" parent="."]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_0sgj5")
 theme_override_font_sizes/font_size = 5
 text = "cost 3"
 

@@ -40,6 +40,7 @@ func _ready() -> void:
 	
 		var attack = chose_random_attack_with_prop()
 		print(attack.name_of_attack, " ---- was chosen" )
+		Global.last_enemy_attack = attack.name_of_attack
 		use_attack(attack)
 		
 

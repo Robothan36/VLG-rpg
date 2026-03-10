@@ -134,7 +134,7 @@ func _on_basic_attack_pressed() -> void:
 	
 	enemy_ressource.health -= Global.allgemeinwissen
 	
-	show_info("Du greifst an und machst " + str(Global.allgemeinwissen) + " Schaden!")
+	show_info("Du benutzt dein Allgemeinwissen und machst " + str(Global.allgemeinwissen) + " Eindruck!")
 	await get_tree().create_timer(1.5).timeout
 	enemy_turn()
 
@@ -150,7 +150,7 @@ func player_attack(damage,heal):
 	Global.health += heal
 	enemy_ressource.health -= damage
 	
-	show_info("Du greifst an und machst " + str(damage) + " Schaden!")
+	show_info("Du benutzt dein Fachwissen und machst " + str(damage) + " Eindruck!")
 	await get_tree().create_timer(1.5).timeout
 	
 	enemy_turn()
@@ -206,14 +206,15 @@ func enemy_turn():
 
 	end_player_turn()
 	
-	show_info(enemy_ressource.name_of_enemy + " greift an!")
+	
 	
 	var instance = preload("res://scene/attack.tscn")
 	var attack_scene = instance.instantiate()
 	
 	attack_scene.subject = enemy_ressource.subject
+	
 	add_child(attack_scene)
-
+	show_info(enemy_ressource.name_of_enemy + " benutzt " + Global.last_enemy_attack)
 func end_player_turn():
 
 	for child in attack_container.get_children():

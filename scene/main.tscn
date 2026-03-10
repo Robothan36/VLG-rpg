@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cj7hij4fw8wgc"]
+[gd_scene load_steps=12 format=3 uid="uid://cj7hij4fw8wgc"]
 
 [ext_resource type="Script" uid="uid://buh5acrwwrqe3" path="res://code/game_scripts/main.gd" id="1_4j5ol"]
 [ext_resource type="PackedScene" uid="uid://cklkj35cb7lrk" path="res://scene/player.tscn" id="1_wp4xf"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://rwiw1uwoxwyq" path="res://assests/texture_mar/texture_sprite_sheet.png" id="2_tqoya"]
 [ext_resource type="PackedScene" uid="uid://c44riupt3vxmv" path="res://scene/enemy.tscn" id="4_brvut"]
 [ext_resource type="Resource" uid="uid://bijoxagl2l8hp" path="res://code/enemy ressources and sripts/enemy_ressources/math_teacher.tres" id="6_p1hux"]
+[ext_resource type="FontFile" uid="uid://cp4vbbfafnwqn" path="res://assests/Star Crush.ttf" id="8_b5f6u"]
 [ext_resource type="PackedScene" uid="uid://2onympu2y4in" path="res://assests/enemy_orientation/win_zone.tscn" id="8_of57s"]
 [ext_resource type="AudioStream" uid="uid://7nvvy7y3cqxo" path="res://assests/music/Beneath the Mask Instrumental.mp3" id="10_tqoya"]
 
@@ -77,10 +78,12 @@ bus = &"music"
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -46.0
-offset_right = -3.0
-offset_bottom = 23.0
+offset_left = -48.0
+offset_top = 8.0
+offset_right = -5.0
+offset_bottom = 31.0
 grow_horizontal = 0
+theme_override_fonts/font = ExtResource("8_b5f6u")
 text = "10/10"
 metadata/_edit_use_anchors_ = true
 
@@ -88,11 +91,12 @@ metadata/_edit_use_anchors_ = true
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -46.0
-offset_top = 24.0
-offset_right = -3.0
-offset_bottom = 47.0
+offset_left = -48.0
+offset_top = 32.0
+offset_right = -5.0
+offset_bottom = 55.0
 grow_horizontal = 0
+theme_override_fonts/font = ExtResource("8_b5f6u")
 text = "10/10"
 metadata/_edit_use_anchors_ = true
 

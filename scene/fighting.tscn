@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://78mqed0x2a3q"]
+[gd_scene load_steps=8 format=3 uid="uid://78mqed0x2a3q"]
 
 [ext_resource type="Script" uid="uid://ctxch1gcviwep" path="res://code/game_scripts/fighting.gd" id="1_ordpl"]
 [ext_resource type="Texture2D" uid="uid://b84we5q3fn1bk" path="res://assests/bob orientations/up.tres" id="2_lfnlm"]
+[ext_resource type="FontFile" uid="uid://cp4vbbfafnwqn" path="res://assests/Star Crush.ttf" id="3_pyqvx"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ordpl"]
 size = Vector2(80, 40)
@@ -112,6 +113,7 @@ offset_left = -38.0
 offset_top = 29.0
 offset_right = 2.0
 offset_bottom = 52.0
+theme_override_fonts/font = ExtResource("3_pyqvx")
 theme_override_font_sizes/font_size = 10
 text = "erer"
 
@@ -121,6 +123,7 @@ offset_left = -38.0
 offset_top = 20.0
 offset_right = 2.0
 offset_bottom = 43.0
+theme_override_fonts/font = ExtResource("3_pyqvx")
 theme_override_font_sizes/font_size = 10
 text = "erer"
 
@@ -168,16 +171,19 @@ layout_mode = 2
 
 [node name="health" type="Label" parent="Control/MarginContainer/HBoxContainer/stats/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_pyqvx")
 theme_override_font_sizes/font_size = 10
 text = "health"
 
 [node name="stamina" type="Label" parent="Control/MarginContainer/HBoxContainer/stats/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_pyqvx")
 theme_override_font_sizes/font_size = 10
 text = "stamina"
 
 [node name="xp" type="Label" parent="Control/MarginContainer/HBoxContainer/stats/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_pyqvx")
 theme_override_font_sizes/font_size = 10
 text = "XP"
 
@@ -197,11 +203,13 @@ layout_mode = 2
 
 [node name="abilities" type="Button" parent="Control/MarginContainer/HBoxContainer/menu/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_pyqvx")
 theme_override_font_sizes/font_size = 10
 text = "Fachwissen"
 
 [node name="basic attack" type="Button" parent="Control/MarginContainer/HBoxContainer/menu/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_pyqvx")
 theme_override_font_sizes/font_size = 10
 text = "Allgemeinwissen"
 
@@ -210,11 +218,13 @@ layout_mode = 2
 
 [node name="items" type="Button" parent="Control/MarginContainer/HBoxContainer/menu/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_pyqvx")
 theme_override_font_sizes/font_size = 10
 text = "Items"
 
 [node name="run" type="Button" parent="Control/MarginContainer/HBoxContainer/menu/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_pyqvx")
 theme_override_font_sizes/font_size = 10
 text = "Flüchten"
 
@@ -235,6 +245,7 @@ layout_mode = 2
 
 [node name="back_item_menu" type="Button" parent="Control/MarginContainer/HBoxContainer/items_menu/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_pyqvx")
 theme_override_font_sizes/font_size = 10
 text = "Back"
 
@@ -255,6 +266,7 @@ layout_mode = 2
 
 [node name="back_attack_menu" type="Button" parent="Control/MarginContainer/HBoxContainer/Fachwissen_menu/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_pyqvx")
 theme_override_font_sizes/font_size = 10
 text = "back"
 
@@ -264,8 +276,10 @@ layout_mode = 2
 
 [node name="info_label" type="Label" parent="Control/MarginContainer/HBoxContainer/info"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_pyqvx")
 theme_override_font_sizes/font_size = 12
 horizontal_alignment = 1
+autowrap_mode = 2
 
 [node name="ColorRect" type="ColorRect" parent="Control/MarginContainer"]
 layout_mode = 2
