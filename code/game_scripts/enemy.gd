@@ -36,6 +36,14 @@ func _physics_process(delta: float) -> void:
 			Global.detection = true
 			print("player spotted")
 			detected_player = true
+			
+
+	if detected_player:
+		velocity = ray_cast_2d.target_position.normalized() * 1
+	else:
+		velocity = Vector2.ZERO
+	
+	move_and_slide()
 
 	if move_and_slide():
 		if self.get_last_slide_collision().get_collider().name == "player":

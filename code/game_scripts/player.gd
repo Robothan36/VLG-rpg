@@ -1,4 +1,5 @@
 extends CharacterBody2D
+@onready var sprite_2d: Sprite2D = $Sprite2D
 
 var speed = 50
 func _input(event: InputEvent) -> void:
@@ -10,15 +11,20 @@ func _input(event: InputEvent) -> void:
 			speed = 50
 		if Input.is_action_pressed("w"):
 			velocity.y = -1 * speed
+			sprite_2d.texture = preload("res://assests/bob orientations/up.tres")
 
 		elif Input.is_action_pressed("S"):
 			velocity.y = 1 * speed
+			sprite_2d.texture = preload("res://assests/bob orientations/down.tres")
 
 		elif Input.is_action_pressed("A"):
+			
 			velocity.x = -1 * speed
+			sprite_2d.texture = preload("res://assests/bob orientations/left.tres")
 
 		elif Input.is_action_pressed("D"):
 			velocity.x = 1 * speed
+			sprite_2d.texture = preload("res://assests/bob orientations/right.tres")
 	else:
 		velocity = Vector2(0,0)
 	# very basic movement script, will be changed later on

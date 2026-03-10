@@ -32,6 +32,8 @@ func _physics_process(delta: float) -> void:
 		
 	else:
 		button.disabled = false
+		
+		
 
 func _on_button_pressed() -> void:
 	if (Global.stamina - stamina_cost) >= 0:
