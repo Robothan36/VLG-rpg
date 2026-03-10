@@ -3,6 +3,10 @@ extends CharacterBody2D
 @onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 var speed = 50
+
+func _ready() -> void:
+	position = Global.player_position
+
 func _input(event: InputEvent) -> void:
 	velocity = Vector2(0,0)
 	if Global.detection == false:
