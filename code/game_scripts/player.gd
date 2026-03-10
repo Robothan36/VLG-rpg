@@ -1,5 +1,6 @@
 extends CharacterBody2D
 @onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 var speed = 50
 func _input(event: InputEvent) -> void:
@@ -32,4 +33,13 @@ func _input(event: InputEvent) -> void:
 func _physics_process(delta: float) -> void:
 	move_and_slide()
 	Global.player_position = self.position
+	
+	if velocity != Vector2.ZERO: 
+		audio_stream_player_2d.play()
+		print("player steps")
+		
+		
+	if velocity == Vector2.ZERO: 
+		audio_stream_player_2d.stop()
+	
 	

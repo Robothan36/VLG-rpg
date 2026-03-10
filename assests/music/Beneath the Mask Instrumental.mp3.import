@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://7nvvy7y3cqxo"
+path="res://.godot/imported/Beneath the Mask Instrumental.mp3-6a0f95d85806ce480029139b7dddf134.mp3str"
+
+[deps]
+
+source_file="res://assests/music/Beneath the Mask Instrumental.mp3"
+dest_files=["res://.godot/imported/Beneath the Mask Instrumental.mp3-6a0f95d85806ce480029139b7dddf134.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

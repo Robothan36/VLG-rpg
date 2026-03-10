@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cj7hij4fw8wgc"]
+[gd_scene load_steps=11 format=3 uid="uid://cj7hij4fw8wgc"]
 
 [ext_resource type="Script" uid="uid://buh5acrwwrqe3" path="res://code/game_scripts/main.gd" id="1_4j5ol"]
 [ext_resource type="PackedScene" uid="uid://cklkj35cb7lrk" path="res://scene/player.tscn" id="1_wp4xf"]
@@ -9,6 +9,7 @@
 [ext_resource type="Resource" uid="uid://bc8msvoxt3yto" path="res://code/items_scripts and ressources/ressource/dextro_energy.tres" id="7_p1hux"]
 [ext_resource type="Resource" uid="uid://c3gnvw4qxebbf" path="res://code/items_scripts and ressources/ressource/space_kecks.tres" id="8_of57s"]
 [ext_resource type="Resource" uid="uid://lrn8tk6pn6n" path="res://code/items_scripts and ressources/ressource/monster_white.tres" id="9_b5f6u"]
+[ext_resource type="AudioStream" uid="uid://7nvvy7y3cqxo" path="res://assests/music/Beneath the Mask Instrumental.mp3" id="10_tqoya"]
 
 [node name="main" type="Node"]
 script = ExtResource("1_4j5ol")
@@ -130,6 +131,15 @@ item_data = ExtResource("9_b5f6u")
 [node name="item20" parent="Node2D/item_container" instance=ExtResource("5_0ha60")]
 position = Vector2(57, -606)
 item_data = ExtResource("8_of57s")
+
+[node name="audio" type="Node2D" parent="Node2D"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Node2D/audio"]
+stream = ExtResource("10_tqoya")
+autoplay = true
+max_distance = 20000.0
+attenuation = 0.025382867
+bus = &"music"
 
 [node name="Node" type="Node" parent="."]
 
