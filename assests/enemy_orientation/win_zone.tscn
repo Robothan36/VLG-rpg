@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://2onympu2y4in"]
+
+[ext_resource type="Script" uid="uid://xt6khs11btrw" path="res://code/win_zone.gd" id="1_i0uop"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_laa82"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_obrm0"]
+
+[node name="win zone" type="Node2D"]
+script = ExtResource("1_i0uop")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1.1920929e-07, 0)
+scale = Vector2(12.25, 12.25)
+texture = SubResource("PlaceholderTexture2D_laa82")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_obrm0")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

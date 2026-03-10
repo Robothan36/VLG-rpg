@@ -1,0 +1,98 @@
+[gd_scene load_steps=5 format=3 uid="uid://dasyfrwab2iu2"]
+
+[ext_resource type="Script" uid="uid://c73xditmd18w8" path="res://code/credits.gd" id="1_c8jmj"]
+
+[sub_resource type="Animation" id="Animation_hgprp"]
+resource_name = "credits"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/Label:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 9.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-105.5, 154), Vector2(-105.5, -590)]
+}
+
+[sub_resource type="Animation" id="Animation_c8jmj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/Label:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-105.5, -590)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hgo0l"]
+_data = {
+&"RESET": SubResource("Animation_c8jmj"),
+&"credits": SubResource("Animation_hgprp")
+}
+
+[node name="credits" type="Node"]
+script = ExtResource("1_c8jmj")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.5
+offset_top = -610.0
+offset_right = 125.5
+offset_bottom = -145.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Credits
+
+A Game by:
+Paula
+Luka
+Erik
+Jonathan
+
+
+
+Sounds by:
+\"Beneath the Mask\" – Eldrago 16
+\"Alert Sound\" – Sandro Lima
+\"Steps\" – yodguard
+
+
+
+Thanks for playing!"
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_hgo0l")
+}
+autoplay = "credits"
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
