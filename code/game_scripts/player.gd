@@ -34,12 +34,10 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	Global.player_position = self.position
 	
-	if velocity != Vector2.ZERO: 
-		audio_stream_player_2d.play()
-		print("player steps")
-		
-		
-	if velocity == Vector2.ZERO: 
+	if velocity != Vector2.ZERO:
+		if not audio_stream_player_2d.playing:
+			audio_stream_player_2d.play()
+			print("player steps")
+
+	if velocity == Vector2.ZERO:
 		audio_stream_player_2d.stop()
-	
-	

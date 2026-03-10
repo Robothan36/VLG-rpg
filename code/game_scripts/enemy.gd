@@ -1,5 +1,7 @@
 extends CharacterBody2D
 class_name enemy
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
+@onready var exlamation_mark: Sprite2D = $exlamation_mark
 
 @export var enemyData: enemy_data
 @onready var sprite_2d: Sprite2D = $Sprite2D
@@ -12,6 +14,7 @@ enum orientation_list {left, right, up, down}
 var detected_player = false
 
 func _ready() -> void:
+	exlamation_mark.visible = false
 	sprite_2d.texture = sprite_2d.texture.duplicate()
 	var atlas = sprite_2d.texture as AtlasTexture
 	
@@ -36,10 +39,12 @@ func _physics_process(delta: float) -> void:
 			Global.detection = true
 			print("player spotted")
 			detected_player = true
+			audio_stream_player_2d.play()
+			exlamation_mark.visible = true
 			
 
 	if detected_player:
-		velocity = ray_cast_2d.target_position.normalized() * 1
+		velocity = ray_cast_2d.global_transform.x.normalized() * 25		
 	else:
 		velocity = Vector2.ZERO
 	

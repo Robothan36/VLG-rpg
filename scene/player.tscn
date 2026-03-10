@@ -1,21 +1,20 @@
 [gd_scene load_steps=4 format=3 uid="uid://cklkj35cb7lrk"]
 
 [ext_resource type="Texture2D" uid="uid://b84we5q3fn1bk" path="res://assests/bob orientations/up.tres" id="1_xo3ru"]
-[ext_resource type="AudioStream" uid="uid://c8ojy7cc6q6vv" path="res://assests/music/freesound_community-footsteps-in-a-hallway-47842.mp3" id="2_hjaqi"]
+[ext_resource type="AudioStream" uid="uid://dkltuou2gye8l" path="res://assests/music/footsteps.mp3" id="2_hjaqi"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4flbx"]
-size = Vector2(18, 31)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hjaqi"]
+radius = 5.5
+height = 13.0
 
 [node name="player" type="CharacterBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -0.5)
-shape = SubResource("RectangleShape2D_4flbx")
+position = Vector2(0, 8)
+shape = SubResource("CapsuleShape2D_hjaqi")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_xo3ru")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_hjaqi")
-volume_db = 12.117
-attenuation = 0.26794344

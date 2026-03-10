@@ -1,14 +1,37 @@
-[gd_scene load_steps=8 format=3 uid="uid://78mqed0x2a3q"]
+[gd_scene load_steps=7 format=3 uid="uid://78mqed0x2a3q"]
 
 [ext_resource type="Script" uid="uid://ctxch1gcviwep" path="res://code/game_scripts/fighting.gd" id="1_ordpl"]
-[ext_resource type="Texture2D" uid="uid://ccif0kdex5tha" path="res://assests/sprite_sheet.png" id="2_lfnlm"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pyqvx"]
-atlas = ExtResource("2_lfnlm")
-region = Rect2(32, 0, 32, 32)
+[ext_resource type="Texture2D" uid="uid://b84we5q3fn1bk" path="res://assests/bob orientations/up.tres" id="2_lfnlm"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ordpl"]
 size = Vector2(80, 40)
+
+[sub_resource type="Animation" id="Animation_pyqvx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/MarginContainer/HBoxContainer/info:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/MarginContainer/HBoxContainer/menu:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_lfnlm"]
 resource_name = "info_animation"
@@ -61,33 +84,6 @@ tracks/3/keys = {
 "values": [false, true]
 }
 
-[sub_resource type="Animation" id="Animation_pyqvx"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Control/MarginContainer/HBoxContainer/info:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Control/MarginContainer/HBoxContainer/menu:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vq8ku"]
 _data = {
 &"RESET": SubResource("Animation_pyqvx"),
@@ -102,8 +98,8 @@ z_index = 5
 
 [node name="player" type="Sprite2D" parent="visuals"]
 z_index = 5
-position = Vector2(65, 56)
-texture = SubResource("AtlasTexture_pyqvx")
+position = Vector2(66, 68)
+texture = ExtResource("2_lfnlm")
 
 [node name="enemy" type="Sprite2D" parent="visuals"]
 z_index = 5

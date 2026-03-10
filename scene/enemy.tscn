@@ -1,10 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://c44riupt3vxmv"]
+[gd_scene load_steps=7 format=3 uid="uid://c44riupt3vxmv"]
 
 [ext_resource type="Script" uid="uid://cirls5fnjttc2" path="res://code/game_scripts/enemy.gd" id="1_h08p8"]
-[ext_resource type="Texture2D" uid="uid://cq5c5ersy1s1t" path="res://assests/enemy.png" id="2_f87vc"]
+[ext_resource type="Texture2D" uid="uid://cq5c5ersy1s1t" path="res://assests/texture_mar/enemy_sprite_sheet.png" id="2_f87vc"]
+[ext_resource type="AudioStream" uid="uid://bkbuc1rhqbmbx" path="res://assests/music/phoenix_connection_brazil-surprise-sound-effect-99300.mp3" id="3_8u16h"]
+[ext_resource type="Texture2D" uid="uid://dixk7x23lh564" path="res://assests/texture_mar/exclamation.png" id="4_b7koy"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vufel"]
-size = Vector2(22, 34)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f87vc"]
+radius = 4.0
+height = 10.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8u16h"]
 atlas = ExtResource("2_f87vc")
@@ -14,8 +17,8 @@ region = Rect2(0, 0, 32, 32)
 script = ExtResource("1_h08p8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 0)
-shape = SubResource("RectangleShape2D_vufel")
+position = Vector2(0, 10)
+shape = SubResource("CapsuleShape2D_f87vc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("AtlasTexture_8u16h")
@@ -24,3 +27,10 @@ texture = SubResource("AtlasTexture_8u16h")
 target_position = Vector2(85, 0)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_8u16h")
+bus = &"efx"
+
+[node name="exlamation_mark" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -31)
+texture = ExtResource("4_b7koy")

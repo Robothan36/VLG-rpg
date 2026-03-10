@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://bmxaqxwikq153"]
+
+[ext_resource type="Texture2D" uid="uid://cq5c5ersy1s1t" path="res://assests/texture_mar/enemy_sprite_sheet.png" id="1_0j3qf"]
+
+[resource]
+atlas = ExtResource("1_0j3qf")
+region = Rect2(32, 0, 32, 32)
